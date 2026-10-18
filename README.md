@@ -13,7 +13,7 @@ This repository contains carefully crafted `config.jsonc` + `style.css` combinat
 | 1.1    | Soft dark Catppuccin palette   |
 | More themes coming... |                              |
 
-## v1.1
+## v1.1 -->
 <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/f1e51e6e-7f4e-461f-8c0f-81484162f4c1" />
 
 
