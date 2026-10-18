@@ -1,0 +1,93 @@
+{
+    // Keep the bar above windows with a compact height.
+    "height": 30,
+    "layer": "top",
+
+    // Place workspaces and the active window on the left; leave the center clear.
+    "modules-left": [
+        "workspaces",
+        "layout",
+        "window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "network",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock#date",
+        "clock#time",
+        "custom/power"
+    ],
+
+    "workspaces": {
+        // Hide unused workspaces; left click activates, right click toggles.
+        "hide-empty": true,
+        "on-click": "activate",
+        "on-click-right": "toggle"
+    },
+    "layout": {
+        "format": "{}"
+    },
+    "window": {
+        "format": "{}"
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 8
+    },
+    "network": {
+        // Show the interface normally, and signal plus SSID on Wi-Fi.
+        "format": "{icon} {ifname}",
+        "format-wifi": "{icon} {ifname} {signal} {ssid}",
+        "format-disconnected": "{icon}",
+        // Left click toggles between the normal display and transfer speeds.
+        "format-alt": "↓{down} ↑{up}",
+        "icon-wifi": "󰖩",
+        "icon-ethernet": "󰈀",
+        "icon-disconnected": "󰖪",
+        // Signal levels are ordered weakest to strongest.
+        "signal-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "cpu": {
+        "format": " {load}%"
+    },
+    "memory": {
+        "format": "󰍛 {}%"
+    },
+    "pulseaudio": {
+        // Click to mute/unmute; scroll adjusts the volume in 2% steps.
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 {volume}%",
+        "icons": ["󰝟", "󰕿", "󰕾"],
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2"
+    },
+    "backlight": {
+        // Device selection is automatic; brightnessctl adjusts by 5% per scroll.
+        "format": "{icon} {percent}%",
+        "icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟"],
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "battery": {
+        "format": "{icon} {percent}% {ac}",
+        "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "clock#date": {
+        "format": " {:L%b %d · %A}"
+    },
+    "clock#time": {
+        "format": " {:L%H:%M}"
+    },
+    "custom/power": {
+        // Opens the power menu; install wlogout to use this action.
+        "format": "⏻",
+        "on-click": "wlogout"
+    }
+}
