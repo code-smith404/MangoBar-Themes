@@ -1,0 +1,43 @@
+{
+    // Compact translucent bar with information grouped at both ends.
+    "height": 30,
+    "layer": "top",
+    "modules-left": ["clock#date", "clock#time", "custom/weather", "workspaces"],
+    "modules-center": [],
+    "modules-right": ["network", "pulseaudio"],
+
+    "clock#date": {
+        "format": " {:L%a %d %b}"
+    },
+    "clock#time": {
+        "format": " {:L%H:%M}"
+    },
+    "custom/weather": {
+        // Current temperature for Ajeetpura, Bhadra, Hanumangarh, Rajasthan, India.
+        "exec": "sh -c 'temperature=$(curl -fsS --max-time 5 \"https://wttr.in/Ajeetpura,Bhadra,Hanumangarh,Rajasthan,India?format=%t\" 2>/dev/null); if [ -n \"$temperature\" ]; then printf \"󰔏 %s\\n\" \"$temperature\"; else printf \"󰔏 --\\n\"; fi'",
+        "interval": 1800
+    },
+    "workspaces": {
+        "hide-empty": false,
+        "on-click": "activate",
+        "on-click-right": "toggle"
+    },
+    "network": {
+        "format": "{icon} {ifname}",
+        "format-wifi": "󰖩 {ssid}",
+        "format-disconnected": "󰖪 offline",
+        "format-alt": "↓{down} ↑{up}",
+        "icon-wifi": "󰖩",
+        "icon-ethernet": "󰈀",
+        "icon-disconnected": "󰖪",
+        "interval": 1
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "icons": ["󰕿", "󰖀", "󰕾"],
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2"
+    }
+}
