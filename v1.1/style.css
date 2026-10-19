@@ -1,0 +1,176 @@
+@define-color base #1e1e2e;
+@define-color surface #313244;
+@define-color surface-hover #45475a;
+@define-color text #cdd6f4;
+@define-color text-muted #a6adc8;
+@define-color red #f38ba8;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color mauve #cba6f7;
+@define-color pink #f5c2e7;
+
+* {
+    font-family: "Maple Mono NF";
+    font-size: 12px;
+    font-weight: bold;
+    color: @text;
+    background-color: none;
+    padding: 2px 6px;
+    margin: 2px;
+    border-radius: 7px;
+}
+
+#bar {
+    background-color: none;
+    margin: 0px 6px;
+}
+
+#tags {
+    background-color: @surface;
+    color: @text-muted;
+    padding: 2px 6px;
+    margin: 2px 1px;
+}
+
+#tags.active {
+    background: linear-gradient(to right, @blue, @lavender);
+    color: @base;
+}
+
+#tags.occupied {
+    background-color: #293b3a;
+    color: @green;
+}
+
+#tags.urgent {
+    background-color: @red;
+    color: @base;
+}
+
+#tags.empty {
+    background-color: @base;
+    color: #6c7086;
+}
+
+#tags:hover {
+    background-color: @surface-hover;
+    color: @text;
+}
+
+#overview {
+    background-color: #3b3450;
+    color: @mauve;
+}
+
+#layout {
+    background-color: #403449;
+    color: @pink;
+}
+
+#title {
+    background-color: @surface;
+    color: @text;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#network {
+    background-color: #263746;
+    color: @sky;
+}
+
+#network.connected,
+#network.wifi {
+    background-color: #263746;
+    color: @sky;
+}
+
+#network.ethernet {
+    background-color: #293a3b;
+    color: @teal;
+}
+
+#network.disconnected {
+    background-color: #432d3b;
+    color: @red;
+}
+
+#custom-network-speed {
+    background-color: #293b3a;
+    color: @teal;
+}
+
+#cpu {
+    background-color: #49362f;
+    color: @peach;
+}
+
+#mem {
+    background-color: #293b3a;
+    color: @teal;
+}
+
+#volume {
+    background-color: #37334e;
+    color: @lavender;
+}
+
+#brightness {
+    background-color: #49402e;
+    color: @yellow;
+}
+
+#battery {
+    background-color: #2e4038;
+    color: @green;
+}
+
+#clock {
+    background-color: #3b3348;
+    color: @mauve;
+}
+
+#clock.date {
+    background-color: #493449;
+    color: @pink;
+}
+
+#tray {
+    background-color: @surface;
+    color: @text;
+    padding: 2px 5px;
+}
+
+#custom-power {
+    background-color: #4a303d;
+    color: @red;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#custom-power:hover {
+    background-color: @red;
+    color: @base;
+}
+
+menu {
+    background-color: @base;
+    color: @text;
+    border-color: @surface-hover;
+    border-radius: 8px;
+}
+
+menuitem {
+    color: @text;
+    padding: 4px 8px;
+}
+
+menuitem:hover {
+    background-color: @surface-hover;
+    color: @text;
+}

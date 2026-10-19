@@ -9,6 +9,15 @@ Stable Catppuccin-inspired theme:
 - [Configuration](v1.0/config.jsonc)
 - [Stylesheet](v1.0/style.css)
 
+## V1.1
+
+Compact update with a live network-speed indicator and an automated installer:
+
+- [V1.1 setup guide](v1.1/README.md)
+- [Configuration](v1.1/config.jsonc)
+- [Stylesheet](v1.1/style.css)
+- [Installer](v1.1/install.sh)
+
 ## V2.0 (Under Development)
 
 Experimental Arch Linux + MangoWM setup based on MangoBar's native JSONC configuration and styling support. Includes a compact bar with tags, active window title, centered date and time, network/audio/system modules, and a confirmed power menu.

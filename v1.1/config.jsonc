@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "height": 27,
+    "sys-interval": 1,
+    "modules-left": [
+        "workspaces",
+        "layout",
+        "window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "network",
+        "custom/network-speed",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock#date",
+        "clock#time",
+        "custom/power"
+    ],
+    "workspaces": {
+        "hide-empty": true,
+        "on-click": "activate",
+        "on-click-right": "toggle"
+    },
+    "layout": {
+        "format": "{}"
+    },
+    "window": {
+        "format": "{}",
+        "max-length": 35
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    },
+    "network": {
+        "format": "{icon} {ifname}",
+        "format-wifi": "{icon} {signal} {ssid}",
+        "format-disconnected": "{icon}",
+        "icon-wifi": "󰖩",
+        "icon-ethernet": "󰈀",
+        "icon-disconnected": "󰖪",
+        "signal-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "custom/network-speed": {
+        "exec": "$HOME/.config/mangobar/scripts/network-speed.sh",
+        "interval": 1,
+        "format": "{}"
+    },
+    "cpu": {
+        "format": " {load}%"
+    },
+    "memory": {
+        "format": "󰍛 {}%"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "icons": ["󰝟", "󰕿", "󰕾"],
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟"],
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "battery": {
+        "format": "{icon} {percent}%",
+        "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "clock#date": {
+        "format": " {:L%b %d}"
+    },
+    "clock#time": {
+        "format": " {:L%H:%M}"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout"
+    }
+}
