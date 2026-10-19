@@ -1,92 +1,76 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "margin-top": 3,
-    "margin-left": 8,
-    "margin-right": 8,
+    "height": 32,
+    "margin-top": 4,
+    "margin-left": 10,
+    "margin-right": 10,
     "spacing": 0,
-    "modules-left": ["custom/launcher", "workspaces", "custom/media"],
-    "modules-center": [],
-    "modules-right": ["custom/chevron", "custom/gamepad", "custom/weather", "custom/idle", "network", "pulseaudio", "clock"],
+    "modules-left": ["workspaces", "custom/visualizer"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "disk", "network", "pulseaudio", "battery"],
 
-    "custom/launcher": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "wofi --show drun || rofi -show drun || fuzzel",
-        "on-click-right": "/home/$USER/.config/mangobar/scripts/power-menu.sh"
-    },
     "workspaces": {
         "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": ["I", "II", "III", "IV", "V"],
-        "persistent-workspaces": {"*": [1, 2, 3, 4, 5]},
-        "on-scroll-up": "mmsg tag +1 || true",
-        "on-scroll-down": "mmsg tag -1 || true",
+        "format": "{name}",
+        "persistent-workspaces": {"*": [1, 2, 3, 4]},
         "on-click": "mmsg tag {index}",
         "on-click-right": "mmsg move {index}"
     },
-    "custom/media": {
-        "exec": "/home/$USER/.config/mangobar/scripts/media.sh",
+    "custom/visualizer": {
+        "exec": "$HOME/.config/mangobar/scripts/cava-visualizer.sh",
+        "format": "{}",
+        "restart-interval": 2,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<big>{:%A, %B %d}</big>\n<tt>{calendar}</tt>"
+    },
+    "cpu": {
         "interval": 2,
-        "tooltip": true,
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next",
-        "on-click-middle": "playerctl previous",
-        "on-scroll-up": "playerctl volume 0.05+",
-        "on-scroll-down": "playerctl volume 0.05-"
+        "format": " {usage}%"
     },
-    "custom/chevron": {
-        "format": "‹",
-        "tooltip": false,
-        "on-click": "/home/$USER/.config/mangobar/scripts/visualizer-toggle.sh"
-    },
-    "custom/gamepad": {
-        "exec": "/home/$USER/.config/mangobar/scripts/gamemode.sh status",
+    "memory": {
         "interval": 5,
-        "format": "",
-        "tooltip": "Game mode",
-        "on-click": "/home/$USER/.config/mangobar/scripts/gamemode.sh toggle"
+        "format": "󰍛 {percentage_used}%"
     },
-    "custom/weather": {
-        "exec": "/home/$USER/.config/mangobar/scripts/weather.sh",
-        "interval": 1800,
-        "tooltip": true,
-        "on-click": "/home/$USER/.config/mangobar/scripts/weather.sh refresh",
-        "on-click-right": "xdg-open https://wttr.in/"
-    },
-    "custom/idle": {
-        "exec": "/home/$USER/.config/mangobar/scripts/idle-toggle.sh status",
-        "interval": 5,
-        "format": "󰈈",
-        "tooltip": "Idle inhibitor",
-        "on-click": "/home/$USER/.config/mangobar/scripts/idle-toggle.sh toggle"
+    "disk": {
+        "interval": 30,
+        "path": "/",
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "{path}: {used} / {total} used"
     },
     "network": {
-        "format": "{ifname}",
+        "interval": 3,
+        "format": "󰈀 {ifname}",
         "format-wifi": " {essid}",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": " offline",
-        "interval": 5,
-        "on-click": "/home/$USER/.config/mangobar/scripts/network-menu.sh",
-        "on-click-right": "nmcli radio wifi on || nmcli radio wifi off"
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰖪 offline",
+        "format-alt": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-disconnected": "Network disconnected"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": " muted",
+        "format-muted": "󰝟 muted",
         "format-icons": ["", "", ""],
         "tooltip": true,
-        "on-click": "/home/$USER/.config/mangobar/scripts/volume.sh mute",
+        "on-click": "$HOME/.config/mangobar/scripts/volume.sh mute",
         "on-click-right": "pavucontrol",
-        "on-click-middle": "/home/$USER/.config/mangobar/scripts/volume.sh switch",
-        "on-scroll-up": "/home/$USER/.config/mangobar/scripts/volume.sh up",
-        "on-scroll-down": "/home/$USER/.config/mangobar/scripts/volume.sh down"
+        "on-scroll-up": "$HOME/.config/mangobar/scripts/volume.sh up",
+        "on-scroll-down": "$HOME/.config/mangobar/scripts/volume.sh down"
     },
-    "clock": {
-        "timezone": "Europe/Stockholm",
-        "format": " {:%I:%M %p}",
-        "tooltip-format": "<big>{:%Y %B %d}</big>\n<tt>{calendar}</tt>",
-        "on-click": "gcalcli agenda --local --nocolor || true",
-        "on-click-right": "echo 24h"
+    "battery": {
+        "interval": 30,
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
     }
 }

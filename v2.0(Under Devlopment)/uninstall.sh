@@ -1,32 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-HOME_DIR="${HOME}"
-CONFIG_ROOT="${HOME_DIR}/.config"
-BACKUP_PARENT="${HOME_DIR}"
+CONFIG_DIR="${HOME:?HOME must be set}/.config/mangobar"
+BACKUP_DIR="$(ls -dt "${HOME}"/.config/mangobar-v2-backup-* 2>/dev/null | head -n 1 || true)"
+files=("config.jsonc" "style.css" "theme.conf" "cava.conf")
+files+=("scripts/cava-visualizer.sh" "scripts/volume.sh")
 
-latest_backup="$(ls -dt "${BACKUP_PARENT}/.config-backup-*" 2>/dev/null | head -n 1 || true)"
+for relative_path in "${files[@]}"; do
+  target="${CONFIG_DIR}/${relative_path}"
+  backup="${BACKUP_DIR}/${relative_path}"
+  if [[ -e "$target" || -L "$target" ]]; then
+    rm -f "$target"
+  fi
+  if [[ -n "$BACKUP_DIR" && ( -e "$backup" || -L "$backup" ) ]]; then
+    mkdir -p "$(dirname "$target")"
+    cp -a "$backup" "$target"
+  fi
+done
 
-if [[ -n "$latest_backup" ]]; then
-  echo "Restoring from ${latest_backup}"
-  for item in "$CONFIG_ROOT/mango" "$CONFIG_ROOT/waybar" "$CONFIG_ROOT/mangobar" "$HOME_DIR/.config/gtk-3.0" "$HOME_DIR/.config/gtk-4.0" "$HOME_DIR/.icons/default" "$HOME_DIR/.config/environment.d"; do
-    if [[ -e "$item" ]]; then
-      rm -rf "$item"
-    fi
-  done
-  cp -a "${latest_backup}/mango" "${CONFIG_ROOT}/mango" 2>/dev/null || true
-  cp -a "${latest_backup}/waybar" "${CONFIG_ROOT}/waybar" 2>/dev/null || true
-  cp -a "${latest_backup}/mangobar" "${CONFIG_ROOT}/mangobar" 2>/dev/null || true
-  cp -a "${latest_backup}/gtk-3.0" "${HOME_DIR}/.config/gtk-3.0" 2>/dev/null || true
-  cp -a "${latest_backup}/gtk-4.0" "${HOME_DIR}/.config/gtk-4.0" 2>/dev/null || true
-  cp -a "${latest_backup}/default" "${HOME_DIR}/.icons/default" 2>/dev/null || true
-  cp -a "${latest_backup}/environment.d" "${HOME_DIR}/.config/environment.d" 2>/dev/null || true
+printf 'MangoBar V2.0 theme files removed from %s\n' "$CONFIG_DIR"
+if [[ -n "$BACKUP_DIR" ]]; then
+  printf 'Previous files were restored from %s\n' "$BACKUP_DIR"
 else
-  rm -rf "$CONFIG_ROOT/mango" "$CONFIG_ROOT/waybar" "$CONFIG_ROOT/mangobar" "$HOME_DIR/.config/gtk-3.0" "$HOME_DIR/.config/gtk-4.0" "$HOME_DIR/.icons/default" "$HOME_DIR/.config/environment.d"
+  printf 'No V2.0 backup was found; unrelated files and directories were left untouched.\n'
 fi
-
-rm -f "$HOME_DIR/.config/environment.d/99-mangobar.conf" "$HOME_DIR/.config/environment.d/99-cursor.conf"
-rm -f "$HOME_DIR/.config/gtk-3.0/settings.ini" "$HOME_DIR/.config/gtk-4.0/settings.ini"
-rm -f "$HOME_DIR/.icons/default/index.theme"
-
-printf 'Uninstall complete.\n'
