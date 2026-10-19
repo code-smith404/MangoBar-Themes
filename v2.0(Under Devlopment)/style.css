@@ -29,11 +29,6 @@ window#waybar {
     border-radius: 0 0 10px 10px;
 }
 
-#bar {
-    min-height: 32px;
-    background-color: rgba(30, 30, 46, 0.88);
-}
-
 #workspaces,
 #custom-visualizer,
 #clock,
