@@ -1,82 +1,134 @@
-/* Translucent charcoal bar with soft blue and cyan pill accents. */
+/* V2.0: charcoal bar with green accent, warm contrast, and subtle modules. */
 * {
     font-family: "JetBrainsMono Nerd Font", "Maple Mono NF";
     font-size: 12px;
-    font-weight: 500;
-    color: #dce5ee;
-    background-color: transparent;
+    font-weight: 600;
+    color: #d9dad5;
+    background: transparent;
     border: none;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    transition: all 150ms ease;
+}
+
+window#waybar {
+    background: rgba(22, 25, 23, 0.88);
+    border: 1px solid rgba(94, 118, 100, 0.8);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: inset 0 0 0 1px rgba(99, 130, 108, 0.4);
 }
 
 #bar {
-    background-color: rgba(13, 19, 28, 0.68);
-    margin: 3px 8px;
-    border-radius: 12px;
+    background: rgba(24, 27, 25, 0.9);
+    min-height: 30px;
 }
 
-#tags,
-#clock,
+#custom-launcher,
+#workspaces,
+#custom-media,
+#custom-chevron,
+#custom-gamepad,
 #custom-weather,
+#custom-idle,
 #network,
-#volume {
-    background-color: rgba(31, 41, 54, 0.82);
-    border: 1px solid rgba(119, 157, 190, 0.24);
-    padding: 4px 10px;
-    margin: 2px 3px;
-    border-radius: 10px;
-}
-
-#tags {
-    min-width: 22px;
-    color: #abb9c9;
-    background-color: rgba(34, 43, 55, 0.82);
-    padding: 4px 9px;
-    margin: 2px;
-}
-
-#tags.occupied {
-    color: #a8c7d3;
-    background-color: rgba(38, 54, 67, 0.84);
-}
-
-#tags.active {
-    color: #10202a;
-    background-color: #83c8e8;
-    border-color: rgba(164, 223, 247, 0.65);
-}
-
-#tags.urgent {
-    color: #24151a;
-    background-color: #e99aa6;
-}
-
-#tags:hover {
-    background-color: rgba(61, 78, 96, 0.96);
-    color: #eef7ff;
-}
-
+#pulseaudio,
 #clock {
-    color: #c7d9e8;
+    background: rgba(35, 39, 36, 0.78);
+    border: 1px solid rgba(123, 133, 120, 0.5);
+    border-radius: 4px;
+    padding: 3px 8px;
+    margin: 2px 4px;
 }
 
-#clock.date {
-    color: #b7cee1;
+#custom-launcher {
+    min-width: 26px;
+    color: #d6f5d5;
+    background: rgba(26, 31, 26, 0.85);
+}
+
+#custom-media {
+    min-width: 120px;
+    color: #ebdf9d;
+}
+
+#workspaces {
+    padding: 2px 4px; 
+}
+
+#workspaces button {
+    background: rgba(50, 58, 53, 0.8);
+    color: #a5a8a3;
+    border-radius: 2px;
+    min-width: 18px;
+    padding: 0 6px;
+    margin: 1px 2px;
+    border: 1px solid transparent;
+}
+
+#workspaces button:hover,
+#custom-launcher:hover,
+#custom-media:hover,
+#custom-chevron:hover,
+#custom-gamepad:hover,
+#custom-weather:hover,
+#custom-idle:hover,
+#network:hover,
+#pulseaudio:hover,
+#clock:hover {
+    background: rgba(68, 78, 72, 0.9);
+    border-color: rgba(128, 176, 122, 0.8);
+}
+
+#workspaces button.active {
+    background: #4caf7a;
+    color: #111815;
+    border-color: rgba(180, 231, 167, 0.8);
+    box-shadow: inset 0 -2px 0 rgba(9, 17, 10, 0.7);
+}
+
+#workspaces button.urgent {
+    background: #f4c76d;
+    color: #1a1a17;
+}
+
+#custom-chevron {
+    color: #bfd7b7;
+}
+
+#custom-gamepad {
+    color: #d8f1bf;
 }
 
 #custom-weather {
-    color: #8fd9e8;
+    color: #bfe5c8;
+}
+
+#custom-idle {
+    color: #d9d2a4;
 }
 
 #network {
-    color: #8fd9e8;
+    color: #c7f0ca;
 }
 
 #network.disconnected {
-    color: #e99aa6;
+    color: #f2ad8a;
 }
 
-#volume {
-    color: #a9c9f4;
+#pulseaudio {
+    color: #d9f3b7;
+}
+
+#clock {
+    color: #e7f3ea;
+    min-width: 92px;
+}
+
+#visualizer {
+    background: rgba(25, 31, 27, 0.9);
+    border: 1px solid rgba(84, 181, 127, 0.9);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
 }
