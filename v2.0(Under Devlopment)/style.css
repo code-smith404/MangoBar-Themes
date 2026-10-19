@@ -1,161 +1,126 @@
-@define-color base #1e1e2e;
-@define-color surface #282838;
-@define-color surface-hover #363648;
-@define-color text #cdd6f4;
-@define-color muted #a6adc8;
-@define-color peach #fab387;
-@define-color gold #f9e2af;
-@define-color orange #fe9a73;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color red #f38ba8;
+@define-color base #1E1E2E;
+@define-color panel #E61E1E2E;
+@define-color surface #E62B2B3A;
+@define-color surface-raised #EB353546;
+@define-color text #CDD6F4;
+@define-color muted #A6ADC8;
+@define-color peach #FAB387;
+@define-color gold #F9E2AF;
+@define-color teal #94E2D5;
+@define-color green #A6E3A1;
+@define-color red #F38BA8;
 
 * {
-    font-family: "JetBrainsMono Nerd Font", "Maple Mono NF", monospace;
-    font-size: 12px;
-    font-weight: 600;
+    font-family: "monospace";
+    font-size: 11px;
+    font-weight: 500;
     color: @text;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    transition: all 150ms ease;
+    background-color: none;
+    padding: 2px 7px;
+    margin: 3px 2px;
+    border-radius: 9px;
 }
 
-window#waybar {
-    background-color: rgba(30, 30, 46, 0.88);
-    border: 1px solid rgba(249, 226, 175, 0.24);
-    border-top: none;
-    border-radius: 0 0 10px 10px;
+#bar {
+    background: @panel;
+    margin: 4px 8px;
+    border-radius: 11px;
 }
 
-#workspaces,
-#custom-visualizer,
-#clock,
-#cpu,
-#memory,
-#disk,
-#network,
-#pulseaudio,
-#battery {
-    background-color: rgba(40, 40, 56, 0.84);
-    border: 1px solid rgba(166, 173, 200, 0.16);
-    border-radius: 7px;
-    padding: 3px 9px;
-    margin: 3px 4px;
-}
-
-#workspaces {
-    padding: 2px 4px;
-}
-
-#workspaces button {
+#tags {
+    background: @surface;
     color: @muted;
-    background-color: transparent;
-    border-radius: 5px;
-    min-width: 20px;
-    padding: 1px 5px;
-    margin: 1px;
+    padding: 2px 5px;
+    margin: 2px;
+    border-radius: 8px;
 }
 
-#workspaces button:hover,
-#custom-visualizer:hover,
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#network:hover,
-#pulseaudio:hover,
-#battery:hover {
-    background-color: @surface-hover;
-    border-color: rgba(250, 179, 135, 0.5);
-}
-
-#workspaces button.active {
+#tags.active {
+    background: @peach;
     color: @base;
-    background-color: @peach;
 }
 
-#workspaces button.urgent {
+#tags.occupied {
+    background: @surface-raised;
+    color: @text;
+}
+
+#tags.urgent {
+    background: @red;
     color: @base;
-    background-color: @red;
 }
 
-#custom-visualizer {
+#tags.empty {
+    background: none;
+    color: @muted;
+}
+
+#tags:hover,
+#workspaces button:hover {
+    background: @surface-raised;
     color: @gold;
-    font-size: 14px;
-    min-width: 118px;
-    padding-left: 10px;
-    padding-right: 10px;
+}
+
+#title {
+    background: none;
+    color: @text;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #clock {
-    color: @gold;
-    font-size: 13px;
-    min-width: 58px;
-    padding-left: 12px;
-    padding-right: 12px;
+    background: @surface;
+    color: @muted;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+#clock.date {
+    color: @peach;
 }
 
 #cpu {
+    background: @surface;
     color: @peach;
 }
 
-#memory {
+#mem {
+    background: @surface;
     color: @teal;
 }
 
-#disk {
+#network {
+    background: @surface;
     color: @gold;
 }
 
-#network {
-    color: @peach;
+#network.connected,
+#network.wifi {
+    color: @teal;
 }
 
 #network.ethernet {
-    color: @orange;
+    color: @gold;
 }
 
 #network.disconnected {
     color: @red;
 }
 
-#pulseaudio {
+#volume {
+    background: @surface;
     color: @gold;
-}
-
-#pulseaudio.muted {
-    color: @muted;
 }
 
 #battery {
+    background: @surface;
     color: @green;
 }
 
-#battery.warning {
-    color: @peach;
-}
-
-#battery.critical {
-    color: @red;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: @gold;
-}
-
-menu {
-    color: @text;
-    background-color: @base;
-    border: 1px solid rgba(249, 226, 175, 0.3);
-    border-radius: 8px;
-}
-
-menuitem {
-    padding: 5px 10px;
-}
-
-menuitem:hover {
-    background-color: @surface-hover;
+#custom-power {
+    background: @peach;
+    color: @base;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 4px;
 }
