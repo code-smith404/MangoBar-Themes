@@ -1,103 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720">
   <defs>
     <linearGradient id="wallpaper" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#111522"/>
-      <stop offset="0.55" stop-color="#20243a"/>
-      <stop offset="1" stop-color="#171c2c"/>
+      <stop stop-color="#11151c"/>
+      <stop offset=".55" stop-color="#202631"/>
+      <stop offset="1" stop-color="#171a22"/>
     </linearGradient>
-    <radialGradient id="glowA">
-      <stop offset="0" stop-color="#8be9d5" stop-opacity=".22"/>
-      <stop offset="1" stop-color="#8be9d5" stop-opacity="0"/>
+    <radialGradient id="glow">
+      <stop stop-color="#d18e70" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d18e70" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowB">
-      <stop offset="0" stop-color="#c5a3ff" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#c5a3ff" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="window" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#222a3c" stop-opacity=".94"/>
-      <stop offset="1" stop-color="#191f30" stop-opacity=".92"/>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#292b30" stop-opacity=".97"/>
+      <stop offset="1" stop-color="#1a1c20" stop-opacity=".96"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="18"/>
-      <feOffset dy="12"/>
-      <feComponentTransfer><feFuncA type="linear" slope=".38"/></feComponentTransfer>
+    <filter id="blur"><feGaussianBlur stdDeviation="55"/></filter>
+    <filter id="shadow" x="-10%" y="-40%" width="120%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dy="8"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer>
       <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="soft">
-      <feGaussianBlur stdDeviation="38"/>
     </filter>
   </defs>
 
-  <rect width="1440" height="900" fill="url(#wallpaper)"/>
-  <ellipse cx="340" cy="275" rx="420" ry="340" fill="url(#glowA)" filter="url(#soft)"/>
-  <ellipse cx="1190" cy="640" rx="430" ry="360" fill="url(#glowB)" filter="url(#soft)"/>
-
-  <g opacity=".18" fill="none" stroke="#8794b4">
-    <circle cx="1100" cy="405" r="300" stroke-width="1"/>
-    <circle cx="1100" cy="405" r="240" stroke-width="1"/>
-    <circle cx="1100" cy="405" r="180" stroke-width="1"/>
-    <path d="M770 405h660M1100 75v660" stroke-width="1"/>
-  </g>
-  <g opacity=".7">
-    <circle cx="1100" cy="405" r="5" fill="#8be9d5"/>
-    <circle cx="1100" cy="165" r="4" fill="#c5a3ff"/>
-    <circle cx="1280" cy="405" r="4" fill="#8cb8ff"/>
-    <circle cx="920" cy="405" r="4" fill="#f5d49a"/>
+  <rect width="1440" height="720" fill="url(#wallpaper)"/>
+  <ellipse cx="330" cy="330" rx="390" ry="250" fill="url(#glow)" filter="url(#blur)"/>
+  <ellipse cx="1120" cy="490" rx="420" ry="300" fill="#8fa8c4" opacity=".055" filter="url(#blur)"/>
+  <g opacity=".11" fill="none" stroke="#c4cedd">
+    <path d="M0 540C220 420 380 620 600 500s390-180 840-40"/>
+    <path d="M0 565C220 445 380 645 600 525s390-180 840-40"/>
+    <path d="M0 590C220 470 380 670 600 550s390-180 840-40"/>
   </g>
 
-  <g filter="url(#shadow)">
-    <rect x="286" y="220" width="868" height="480" rx="18" fill="url(#window)" stroke="#e6eaf2" stroke-opacity=".12"/>
-    <path d="M304 220h832a18 18 0 0 1 18 18v44H286v-44a18 18 0 0 1 18-18Z" fill="#ffffff" fill-opacity=".035"/>
-    <circle cx="315" cy="248" r="5" fill="#ff8295" opacity=".85"/>
-    <circle cx="334" cy="248" r="5" fill="#f5d49a" opacity=".85"/>
-    <circle cx="353" cy="248" r="5" fill="#9ce6b0" opacity=".85"/>
-    <text x="720" y="253" text-anchor="middle" fill="#a5aec0" font-family="sans-serif" font-size="12" letter-spacing="1.4">MIDNIGHT / AURORA</text>
-    <text x="350" y="330" fill="#e6eaf2" font-family="sans-serif" font-size="28" font-weight="500">A quieter kind of focus.</text>
-    <text x="350" y="360" fill="#a5aec0" font-family="sans-serif" font-size="14">Your workspace, clear and in balance.</text>
-    <rect x="350" y="394" width="770" height="1" fill="#e6eaf2" opacity=".1"/>
-    <rect x="350" y="430" width="245" height="196" rx="12" fill="#8be9d5" opacity=".075" stroke="#8be9d5" stroke-opacity=".19"/>
-    <text x="374" y="468" fill="#8be9d5" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1.7">NOW PLAYING</text>
-    <text x="374" y="516" fill="#e6eaf2" font-family="sans-serif" font-size="21" font-weight="600">Deep work</text>
-    <text x="374" y="543" fill="#a5aec0" font-family="sans-serif" font-size="13">Workspace 02  ·  3 windows</text>
-    <rect x="374" y="574" width="112" height="28" rx="14" fill="#8be9d5" opacity=".18"/>
-    <text x="430" y="593" text-anchor="middle" fill="#8be9d5" font-family="sans-serif" font-size="11" font-weight="600">IN FOCUS</text>
-    <rect x="615" y="430" width="505" height="196" rx="12" fill="#ffffff" fill-opacity=".025" stroke="#e6eaf2" stroke-opacity=".09"/>
-    <text x="646" y="468" fill="#a5aec0" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1.7">A LITTLE SPACE TO THINK</text>
-    <path d="M646 502h440M646 526h370M646 550h405M646 574h330" stroke="#c5a3ff" stroke-opacity=".27" stroke-width="5" stroke-linecap="round"/>
-    <path d="M646 502h275M646 526h224M646 550h312M646 574h190" stroke="#e6eaf2" stroke-opacity=".16" stroke-width="5" stroke-linecap="round"/>
+  <g filter="url(#shadow)" font-family="Inter, sans-serif">
+    <rect x="0" y="12" width="1440" height="46" fill="url(#bar)"/>
+    <path d="M0 57h1440" stroke="#ffffff" stroke-opacity=".09"/>
+    <g font-size="14" font-weight="500" fill="#ececef">
+      <text x="28" y="41">Workspace</text>
+      <text x="121" y="41">Apps</text>
+      <text x="171" y="41">Files</text>
+      <text x="222" y="41">Help</text>
+    </g>
+    <text x="302" y="41" font-size="13" fill="#a6a9ae">Firefox — MangoBar Themes</text>
+
+    <g font-size="13" fill="#e3e4e6">
+      <path d="M1030 28l7-5 7 5v9l-7 5-7-5z" fill="none" stroke="#d9dcdf" stroke-width="1.5"/>
+      <path d="M1041 28l4 3v5l-4 3" fill="none" stroke="#d9dcdf" stroke-width="1.3"/>
+      <path d="M1073 29c4-6 13-6 17 0M1077 33c2-3 7-3 9 0M1081 37h1" fill="none" stroke="#e3e4e6" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M1110 27l6 11M1116 27l-6 11" stroke="#e3e4e6" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="1145" y="27" width="25" height="13" rx="3" fill="none" stroke="#e3e4e6" stroke-width="1.5"/>
+      <rect x="1171" y="31" width="3" height="5" rx="1" fill="#e3e4e6"/>
+      <rect x="1148" y="30" width="15" height="7" rx="1.5" fill="#e3e4e6"/>
+      <text x="1185" y="40">87%</text>
+      <path d="M1241 31q8-7 16 0v8q-8 6-16 0z" fill="none" stroke="#e3e4e6" stroke-width="1.5"/>
+      <path d="M1260 32q5 5 0 10M1264 29q9 8 0 16" fill="none" stroke="#e3e4e6" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="1284" y="40">Tue Oct 20</text>
+      <text x="1372" y="40" fill="#fff" font-weight="600">7:42</text>
+    </g>
   </g>
 
-  <g font-family="monospace" font-size="12" font-weight="500">
-    <rect x="64" y="35" width="1312" height="48" rx="14" fill="#171d2b" fill-opacity=".91" stroke="#e6eaf2" stroke-opacity=".08"/>
-    <rect x="78" y="46" width="176" height="26" rx="9" fill="#222a3b"/>
-    <rect x="84" y="51" width="25" height="16" rx="6" fill="#8be9d5"/>
-    <text x="96.5" y="63" text-anchor="middle" fill="#111522" font-size="10" font-weight="700">1</text>
-    <rect x="113" y="51" width="25" height="16" rx="6" fill="#2c3548"/>
-    <text x="125.5" y="63" text-anchor="middle" fill="#e6eaf2">2</text>
-    <rect x="142" y="51" width="25" height="16" rx="6" fill="#2c3548"/>
-    <text x="154.5" y="63" text-anchor="middle" fill="#e6eaf2">3</text>
-    <rect x="171" y="51" width="25" height="16" rx="6" fill="#2c3548"/>
-    <text x="183.5" y="63" text-anchor="middle" fill="#e6eaf2">4</text>
-    <rect x="200" y="51" width="25" height="16" rx="6" fill="#2c3548"/>
-    <text x="212.5" y="63" text-anchor="middle" fill="#e6eaf2">5</text>
-    <text x="274" y="65" fill="#e6eaf2">MangoBar — a quiet workspace for focused work</text>
-
-    <rect x="602" y="46" width="114" height="26" rx="9" fill="#222a3b"/>
-    <text x="659" y="63" text-anchor="middle" fill="#c5a3ff">Tue, 20 Oct</text>
-    <rect x="723" y="46" width="65" height="26" rx="9" fill="#8cb8ff"/>
-    <text x="755.5" y="63" text-anchor="middle" fill="#111522" font-weight="700">06:32</text>
-
-    <rect x="980" y="46" width="115" height="26" rx="9" fill="#222a3b"/>
-    <text x="1037.5" y="63" text-anchor="middle" fill="#8be9d5">◉ Wi-Fi</text>
-    <rect x="1101" y="46" width="73" height="26" rx="9" fill="#222a3b"/>
-    <text x="1137.5" y="63" text-anchor="middle" fill="#f5d49a">♫ 42%</text>
-    <rect x="1180" y="46" width="66" height="26" rx="9" fill="#222a3b"/>
-    <text x="1213" y="63" text-anchor="middle" fill="#8cb8ff">CPU 8%</text>
-    <rect x="1252" y="46" width="69" height="26" rx="9" fill="#222a3b"/>
-    <text x="1286.5" y="63" text-anchor="middle" fill="#c5a3ff">RAM 36%</text>
-    <rect x="1327" y="46" width="36" height="26" rx="9" fill="#c5a3ff"/>
-    <text x="1345" y="64" text-anchor="middle" fill="#111522" font-size="17" font-weight="700">⏻</text>
+  <g font-family="Inter, sans-serif" text-anchor="middle">
+    <text x="720" y="316" fill="#f2f2f3" font-size="28" font-weight="500">A calmer desktop, at a glance.</text>
+    <text x="720" y="352" fill="#a9adb4" font-size="15">Lumen · a dark, macOS-inspired MangoBar menu bar</text>
+    <rect x="637" y="382" width="166" height="1" fill="#d18e70" opacity=".55"/>
+    <text x="720" y="423" fill="#c2c5ca" font-size="13">Workspace and app actions</text>
+    <text x="720" y="448" fill="#c2c5ca" font-size="13">Wi-Fi · audio · battery · date and time</text>
   </g>
 
-  <text x="720" y="842" text-anchor="middle" fill="#a5aec0" font-family="sans-serif" font-size="11" letter-spacing="2.1" opacity=".7">MANGOBAR V3.0  ·  AURORA THEME PREVIEW</text>
+  <text x="720" y="674" text-anchor="middle" fill="#888e98" font-family="Inter, sans-serif" font-size="11" letter-spacing="1.6">CONCEPT PREVIEW · NO APPLE LOGO · REAL MENU ACTIONS ARE LINUX DESKTOP ACTIONS</text>
 </svg>

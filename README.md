@@ -12,13 +12,13 @@ cd MangoBar-Themes
 ./install.sh
 ```
 
-Choose V1.0, V1.1, V2.0, or V3.0 (Aurora) when prompted. The installer copies only the selected theme's files into `~/.config/mangobar/`.
+Choose V1.0, V1.1, V2.0, or V3.0 (Lumen) when prompted. The installer copies only the selected theme's files into `~/.config/mangobar/`.
 
 ## Theme previews
 
 Each version has a separate preview image. These are static visual previews; the final appearance depends on your display, installed font, MangoBar build, and system status.
 
-[Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Aurora](#v30--aurora)
+[Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Lumen](#v30--lumen)
 
 ## V1.0
 
@@ -54,11 +54,11 @@ Experimental Arch Linux + MangoWM setup based on MangoBar's native JSONC configu
 
 The setup targets the currently published MangoBar documentation. No MangoBar binary or version is installed in this workspace, so the exact local runtime version could not be identified or launched here.
 
-## V3.0 — Aurora
+## V3.0 — Lumen
 
-A polished midnight palette with soft cyan and violet accents, compact workspace pills, a highlighted clock, and a power menu.
+A dark, macOS-inspired menu bar with understated workspace/app/file/help menus, a compact system-status cluster, and no Apple logo.
 
-![MangoBar V3.0 Aurora preview](v3.0/preview.svg)
+![MangoBar V3.0 Lumen preview](v3.0/preview.svg)
 [Open full-size V3.0 preview](v3.0/preview.svg)
 
 - [V3.0 setup guide](v3.0/README.md)

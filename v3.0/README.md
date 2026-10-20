@@ -1,27 +1,36 @@
-# MangoBar V3.0 — Aurora
+# MangoBar V3.0 — Lumen
 
-A polished midnight theme with a translucent ink panel, soft cyan and violet accents, compact workspace pills, a highlighted live clock, and a dedicated power-menu button.
+Lumen is a dark, macOS-inspired menu bar for MangoWM. It uses restrained menu labels on the left, a subdued active-window title, and a compact tray/network/audio/battery/clock cluster on the right. The Apple logo is intentionally omitted.
 
-![V3.0 Aurora theme preview](preview.svg)
+![V3.0 Lumen dark menu-bar preview](preview.svg)
 
 ## Install
 
-From the repository root, run the installer and choose **4) V3.0 (Aurora)**:
+From the repository root, run the installer and choose **4) V3.0 (Lumen)**:
 
 ```bash
 ./install.sh
 ```
 
-The installer installs `config.jsonc`, `style.css`, and the executable `scripts/power-menu.sh` into `~/.config/mangobar/`. Existing files are backed up under `~/.config/mangobar-v3.0-backup-*`. It does not change MangoWM configuration or install system packages.
+The installer copies `config.jsonc`, `style.css`, and the executable `scripts/menu.sh` and `scripts/power-menu.sh` into `~/.config/mangobar/`. Existing files are backed up under `~/.config/mangobar-v3.0-backup-*`.
 
-The power menu uses `wofi`, `rofi`, or `fuzzel` (first available) and requires `systemctl`/`loginctl` for its actions. Audio controls use `wpctl`. Install and configure those tools separately if you want the corresponding actions.
+To install manually from the repository root:
 
-## Layout
+```bash
+mkdir -p "$HOME/.config/mangobar/scripts"
+cp v3.0/config.jsonc v3.0/style.css "$HOME/.config/mangobar/"
+install -m 755 v3.0/scripts/menu.sh v3.0/scripts/power-menu.sh \
+    "$HOME/.config/mangobar/scripts/"
+```
 
-- **Left:** workspace pills and the active window title.
-- **Center:** date and a cyan-highlighted 24-hour clock.
-- **Right:** network, volume, CPU, memory, battery, and power menu.
-- Click a workspace to activate it; right-click to toggle it. Scroll over the workspace list to switch between occupied workspaces.
-- Click volume to mute/unmute or scroll to adjust the level. Click the power control to open the confirmed power menu.
+## Menu behavior
 
-The theme uses plain text labels and a monospace font, so it does not depend on a Nerd Font.
+The **Workspace** menu switches to the previous or next occupied workspace. **Apps** opens the desktop application launcher. **Files** opens Home, Downloads, or the file manager. **Help** opens MangoBar or MangoWM documentation. The workspace menu uses MangoWM's `mmsg`; the app/menu launchers use `wofi`, `rofi`, or `fuzzel`; file actions use `xdg-open` and an installed file manager.
+
+The system tray is MangoBar's native tray. Click the audio indicator to mute/unmute, scroll it to adjust volume, click the network indicator to toggle its alternate transfer-rate display, and use the power control for confirmed logout/restart/shutdown actions.
+
+This is a macOS-inspired Linux bar, not a full macOS menu-bar replacement. MangoBar does not expose active applications' native File/Edit/View/Window menus, Apple system menus, or macOS control-center behavior. The menus here are global desktop actions and do not show app-specific commands.
+
+## Customize
+
+The palette is defined at the top of `style.css`. Adjust `@accent` and `@accent-strong` to change the warm highlight. **Inter** is the recommended font; replace it in the global `font-family` rule if it is not installed. Nerd Font icons are only used for audio and power indicators; Maple Mono NF or another Nerd Font is recommended for those glyphs.

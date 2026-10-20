@@ -8,7 +8,7 @@ printf 'Choose a MangoBar theme to install:\n'
 printf '  1) V1.0\n'
 printf '  2) V1.1\n'
 printf '  3) V2.0 (Under Development)\n'
-printf '  4) V3.0 (Aurora)\n'
+printf '  4) V3.0 (Lumen)\n'
 if ! read -r -p 'Enter 1, 2, 3, or 4: ' choice; then
     printf 'Error: no theme choice was provided.\n' >&2
     exit 1
@@ -52,7 +52,7 @@ case "$choice" in
         version='V3.0'
         theme_path='v3.0'
         backup_name='mangobar-v3.0-backup'
-        managed_files=(config.jsonc style.css scripts/power-menu.sh)
+        managed_files=(config.jsonc style.css scripts/menu.sh scripts/power-menu.sh)
         obsolete_files=()
         ;;
     *)

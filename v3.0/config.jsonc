@@ -1,66 +1,86 @@
+// Lumen — a dark, macOS-inspired MangoBar menu bar (without an Apple logo).
 {
     "layer": "top",
     "height": 34,
     "buffer-scale": 1,
     "sys-interval": 2,
     "scroll-interval": 100,
+
+    // Menu-style actions on the left; compact system status and clock on the right.
     "modules-left": [
-        "workspaces",
+        "custom/workspace-menu",
+        "custom/apps-menu",
+        "custom/files-menu",
+        "custom/help-menu",
         "window"
     ],
-    "modules-center": [
-        "clock#date",
-        "clock#time"
-    ],
+    "modules-center": [],
     "modules-right": [
+        "tray",
         "network",
         "pulseaudio",
-        "cpu",
-        "memory",
         "battery",
+        "clock#date",
+        "clock#time",
         "custom/power"
     ],
-    "workspaces": {
-        "hide-empty": true,
-        "pinned": [1, 2, 3, 4, 5],
-        "on-click": "activate",
-        "on-click-right": "toggle",
-        "on-scroll-up": "mmsg dispatch viewtoleft_have_client",
-        "on-scroll-down": "mmsg dispatch viewtoright_have_client"
+
+    "custom/workspace-menu": {
+        "exec": "printf 'Workspace'",
+        "format": "{}",
+        "on-click": "$HOME/.config/mangobar/scripts/menu.sh workspace"
+    },
+    "custom/apps-menu": {
+        "exec": "printf 'Apps'",
+        "format": "{}",
+        "on-click": "$HOME/.config/mangobar/scripts/menu.sh apps"
+    },
+    "custom/files-menu": {
+        "exec": "printf 'Files'",
+        "format": "{}",
+        "on-click": "$HOME/.config/mangobar/scripts/menu.sh files"
+    },
+    "custom/help-menu": {
+        "exec": "printf 'Help'",
+        "format": "{}",
+        "on-click": "$HOME/.config/mangobar/scripts/menu.sh help"
     },
     "window": {
         "format": "{}",
-        "max-length": 240
+        "max-length": 34
     },
-    "clock#date": {
-        "format": "{:L%a, %d %b}"
-    },
-    "clock#time": {
-        "format": "{:%H:%M}"
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
     },
     "network": {
-        "format": "◉ {ifname}",
-        "format-wifi": "◉ {ssid}",
-        "format-ethernet": "◆ {ifname}",
-        "format-disconnected": "◉ offline",
+        "format": "{icon}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "{icon}",
+        "format-disconnected": "{icon}",
         "format-alt": "↓ {down}  ↑ {up}",
-        "max-length": 120
+        "icon-wifi": "◉",
+        "icon-ethernet": "◆",
+        "icon-disconnected": "○",
+        "max-length": 24
     },
     "pulseaudio": {
-        "format": "♫ {volume}%",
-        "format-muted": "♫ muted",
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "icons": ["󰝟", "󰕿", "󰕾"],
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
-    "cpu": {
-        "format": "CPU {usage}%"
-    },
-    "memory": {
-        "format": "RAM {}%"
-    },
     "battery": {
-        "format": "BAT {percent}%"
+        "format": "{icon} {percent}%",
+        "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "clock#date": {
+        "format": "{:L%a %b %d}"
+    },
+    "clock#time": {
+        "format": "{:%H:%M}"
     },
     "custom/power": {
         "exec": "printf '⏻'",
