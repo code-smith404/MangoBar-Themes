@@ -21,7 +21,6 @@ Each version has a separate preview image. These are static visual previews; the
 [Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Aurora](#v30--aurora)
 
 ## V1.0
-**Git tag:** [`v1.0`](https://github.com/code-smith404/MangoBar-Themes/tree/v1.0)
 
 Stable Catppuccin-inspired theme:
 
@@ -32,7 +31,6 @@ Stable Catppuccin-inspired theme:
 - [Stylesheet](v1.0/style.css)
 
 ## V1.1
-**Git tag:** [`v1.1`](https://github.com/code-smith404/MangoBar-Themes/tree/v1.1)
 
 Compact update with a live network-speed indicator:
 
@@ -44,7 +42,6 @@ Compact update with a live network-speed indicator:
 - [Stylesheet](v1.1/style.css)
 
 ## V2.0 (Under Development)
-**Git tag:** [`v2.0`](https://github.com/code-smith404/MangoBar-Themes/tree/v2.0)
 
 Experimental Arch Linux + MangoWM setup based on MangoBar's native JSONC configuration and styling support. Includes a compact bar with tags, active window title, centered date and time, network/audio/system modules, and a confirmed power menu.
 
@@ -58,7 +55,6 @@ Experimental Arch Linux + MangoWM setup based on MangoBar's native JSONC configu
 The setup targets the currently published MangoBar documentation. No MangoBar binary or version is installed in this workspace, so the exact local runtime version could not be identified or launched here.
 
 ## V3.0 — Aurora
-**Git tag:** [`v3.0`](https://github.com/code-smith404/MangoBar-Themes/tree/v3.0)
 
 A polished midnight palette with soft cyan and violet accents, compact workspace pills, a highlighted clock, and a power menu.
 
