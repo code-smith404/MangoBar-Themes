@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171513"/><stop offset="1" stop-color="#30231f"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d98267"/><stop offset="1" stop-color="#f2a47f"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#39312c"/><stop offset="1" stop-color="#1c1918"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur in="SourceAlpha" stdDeviation="12"/><feOffset dy="8"/><feComponentTransfer><feFuncA type="linear" slope=".4"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="440" rx="24" fill="url(#bg)"/>
+  <circle cx="1050" cy="80" r="210" fill="#f2a47f" opacity=".08"/>
+  <circle cx="160" cy="360" r="180" fill="#92c9bf" opacity=".06"/>
+  <text x="64" y="75" fill="#f5eee8" font-family="sans-serif" font-size="27" font-weight="700">MangoBar · V2.0</text>
+  <text x="66" y="103" fill="#c7b8ab" font-family="sans-serif" font-size="13" letter-spacing="1.4">EMBER GLASS · WARM PEACH WITH COOL TEAL</text>
+  <g filter="url(#shadow)" font-family="monospace" font-size="13">
+    <rect x="54" y="145" width="1092" height="58" rx="16" fill="url(#bar)" stroke="#f2a47f" stroke-opacity=".2"/>
+    <rect x="70" y="157" width="150" height="34" rx="11" fill="#302824"/>
+    <rect x="77" y="163" width="28" height="22" rx="8" fill="url(#accent)"/><text x="91" y="179" text-anchor="middle" fill="#171513">1</text>
+    <text x="121" y="179" fill="#c7b8ab">2</text><text x="153" y="179" fill="#c7b8ab">3</text><text x="185" y="179" fill="#c7b8ab">4</text>
+    <text x="232" y="179" fill="#c7b8ab">Focused window</text>
+    <rect x="646" y="157" width="100" height="34" rx="11" fill="#302824"/><text x="696" y="179" text-anchor="middle" fill="#e8c99e">Tue, 20 Oct</text>
+    <rect x="752" y="157" width="78" height="34" rx="11" fill="url(#accent)"/><text x="791" y="179" text-anchor="middle" fill="#171513" font-weight="700">06:50</text>
+    <rect x="836" y="157" width="80" height="34" rx="11" fill="#292724"/><text x="876" y="179" text-anchor="middle" fill="#92c9bf">Wi-Fi</text>
+    <rect x="922" y="157" width="76" height="34" rx="11" fill="#292724"/><text x="960" y="179" text-anchor="middle" fill="#e8c99e">♫ 42%</text>
+    <rect x="1004" y="157" width="76" height="34" rx="11" fill="#292724"/><text x="1042" y="179" text-anchor="middle" fill="#f2a47f">CPU 8%</text>
+    <rect x="1086" y="157" width="44" height="34" rx="11" fill="url(#accent)"/><text x="1108" y="180" text-anchor="middle" fill="#171513" font-size="18">⏻</text>
+  </g>
+  <rect x="64" y="260" width="1072" height="1" fill="#f5eee8" opacity=".13"/>
+  <text x="64" y="300" fill="#f5eee8" font-family="sans-serif" font-size="17" font-weight="600">Warm light, held in a quiet pane of glass.</text>
+  <text x="64" y="328" fill="#c7b8ab" font-family="sans-serif" font-size="13">Soft peach gives focus to the clock and workspaces; teal and gold keep system status distinct.</text>
+  <text x="64" y="396" fill="#9e9187" font-family="sans-serif" font-size="11" letter-spacing="1.5">STATIC THEME PREVIEW · ACTUAL APPEARANCE MAY VARY BY FONT AND MANGOBAR BUILD</text>
+</svg>

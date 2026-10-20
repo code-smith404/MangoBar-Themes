@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171923"/><stop offset="1" stop-color="#29263d"/></linearGradient>
+    <linearGradient id="focus" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#89b4fa"/><stop offset="1" stop-color="#cba6f7"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#303044"/><stop offset="1" stop-color="#1e1e2e"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur in="SourceAlpha" stdDeviation="12"/><feOffset dy="8"/><feComponentTransfer><feFuncA type="linear" slope=".38"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="440" rx="24" fill="url(#bg)"/>
+  <circle cx="1050" cy="80" r="200" fill="#cba6f7" opacity=".09"/>
+  <circle cx="180" cy="370" r="180" fill="#89b4fa" opacity=".07"/>
+  <text x="64" y="75" fill="#f5f3fb" font-family="sans-serif" font-size="27" font-weight="700">MangoBar · V1.0</text>
+  <text x="66" y="103" fill="#a6adc8" font-family="sans-serif" font-size="13" letter-spacing="1.4">CATPPUCCIN MOCHA · CALM BLUE &amp; LAVENDER</text>
+  <g filter="url(#shadow)" font-family="monospace" font-size="13">
+    <rect x="54" y="145" width="1092" height="58" rx="16" fill="url(#bar)" stroke="#cdd6f4" stroke-opacity=".08"/>
+    <rect x="70" y="157" width="150" height="34" rx="10" fill="#45475a"/>
+    <rect x="77" y="163" width="28" height="22" rx="7" fill="url(#focus)"/><text x="91" y="179" text-anchor="middle" fill="#1e1e2e">1</text>
+    <text x="121" y="179" fill="#a6adc8">2</text><text x="153" y="179" fill="#a6adc8">3</text><text x="185" y="179" fill="#a6adc8">4</text>
+    <rect x="230" y="157" width="225" height="34" rx="10" fill="#313244"/><text x="244" y="179" fill="#cdd6f4">Focused window</text>
+    <rect x="662" y="157" width="94" height="34" rx="10" fill="#3b3348"/><text x="709" y="179" text-anchor="middle" fill="#cba6f7">Oct 20</text>
+    <rect x="762" y="157" width="78" height="34" rx="10" fill="#493449"/><text x="801" y="179" text-anchor="middle" fill="#f5c2e7">06:50</text>
+    <rect x="848" y="157" width="88" height="34" rx="10" fill="#263746"/><text x="892" y="179" text-anchor="middle" fill="#89dceb">Wi-Fi</text>
+    <rect x="944" y="157" width="78" height="34" rx="10" fill="#49362f"/><text x="983" y="179" text-anchor="middle" fill="#fab387">CPU 8%</text>
+    <rect x="1030" y="157" width="100" height="34" rx="10" fill="#37334e"/><text x="1080" y="179" text-anchor="middle" fill="#b4befe">VOL 42%</text>
+  </g>
+  <rect x="64" y="260" width="1072" height="1" fill="#cdd6f4" opacity=".13"/>
+  <text x="64" y="300" fill="#cdd6f4" font-family="sans-serif" font-size="17" font-weight="600">Soft, familiar, and easy on the eyes.</text>
+  <text x="64" y="328" fill="#a6adc8" font-family="sans-serif" font-size="13">Active workspace blends blue into lavender; each system module has a gentle Catppuccin accent.</text>
+  <text x="64" y="396" fill="#6c7086" font-family="sans-serif" font-size="11" letter-spacing="1.5">STATIC THEME PREVIEW · ACTUAL APPEARANCE MAY VARY BY FONT AND MANGOBAR BUILD</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171923"/><stop offset="1" stop-color="#25333c"/></linearGradient>
+    <linearGradient id="focus" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#89b4fa"/><stop offset="1" stop-color="#cba6f7"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#303044"/><stop offset="1" stop-color="#1e1e2e"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur in="SourceAlpha" stdDeviation="12"/><feOffset dy="8"/><feComponentTransfer><feFuncA type="linear" slope=".38"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="440" rx="24" fill="url(#bg)"/>
+  <circle cx="1040" cy="80" r="200" fill="#94e2d5" opacity=".09"/>
+  <circle cx="160" cy="360" r="170" fill="#89dceb" opacity=".07"/>
+  <text x="64" y="75" fill="#f5f3fb" font-family="sans-serif" font-size="27" font-weight="700">MangoBar · V1.1</text>
+  <text x="66" y="103" fill="#a6adc8" font-family="sans-serif" font-size="13" letter-spacing="1.4">COMPACT CATPPUCCIN · LIVE NETWORK SPEED</text>
+  <g filter="url(#shadow)" font-family="monospace" font-size="13">
+    <rect x="54" y="145" width="1092" height="58" rx="15" fill="url(#bar)" stroke="#cdd6f4" stroke-opacity=".08"/>
+    <rect x="70" y="157" width="144" height="34" rx="10" fill="#45475a"/>
+    <rect x="77" y="163" width="28" height="22" rx="7" fill="url(#focus)"/><text x="91" y="179" text-anchor="middle" fill="#1e1e2e">1</text>
+    <text x="119" y="179" fill="#a6adc8">2</text><text x="151" y="179" fill="#a6adc8">3</text><text x="183" y="179" fill="#a6adc8">4</text>
+    <rect x="224" y="157" width="190" height="34" rx="10" fill="#313244"/><text x="238" y="179" fill="#cdd6f4">Focused window</text>
+    <rect x="728" y="157" width="82" height="34" rx="10" fill="#263746"/><text x="769" y="179" text-anchor="middle" fill="#89dceb">Wi-Fi</text>
+    <rect x="816" y="157" width="130" height="34" rx="10" fill="#293b3a"/><text x="881" y="179" text-anchor="middle" fill="#94e2d5">↓ 1.2  ↑ 0.4</text>
+    <rect x="952" y="157" width="76" height="34" rx="10" fill="#49362f"/><text x="990" y="179" text-anchor="middle" fill="#fab387">CPU 8%</text>
+    <rect x="1034" y="157" width="96" height="34" rx="10" fill="#37334e"/><text x="1082" y="179" text-anchor="middle" fill="#b4befe">VOL 42%</text>
+  </g>
+  <rect x="64" y="260" width="1072" height="1" fill="#cdd6f4" opacity=".13"/>
+  <text x="64" y="300" fill="#cdd6f4" font-family="sans-serif" font-size="17" font-weight="600">Everything you need, without the extra weight.</text>
+  <text x="64" y="328" fill="#a6adc8" font-family="sans-serif" font-size="13">A slimmer bar keeps a live download/upload readout close to your network status.</text>
+  <text x="64" y="396" fill="#6c7086" font-family="sans-serif" font-size="11" letter-spacing="1.5">STATIC THEME PREVIEW · ACTUAL APPEARANCE MAY VARY BY FONT AND MANGOBAR BUILD</text>
+</svg>
