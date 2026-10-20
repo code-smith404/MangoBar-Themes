@@ -9,7 +9,8 @@ printf '  1) V1.0\n'
 printf '  2) V1.1\n'
 printf '  3) V2.0 (Under Development)\n'
 printf '  4) V3.0 (Lumen)\n'
-if ! read -r -p 'Enter 1, 2, 3, or 4: ' choice; then
+printf '  5) V4.0 (Square)\n'
+if ! read -r -p 'Enter 1, 2, 3, 4, or 5: ' choice; then
     printf 'Error: no theme choice was provided.\n' >&2
     exit 1
 fi
@@ -55,8 +56,15 @@ case "$choice" in
         managed_files=(config.jsonc style.css scripts/menu.sh scripts/power-menu.sh)
         obsolete_files=()
         ;;
+    5|V4.0|v4.0)
+        version='V4.0'
+        theme_path='v4.0'
+        backup_name='mangobar-v4.0-backup'
+        managed_files=(config.jsonc style.css scripts/controls.sh scripts/power-menu.sh)
+        obsolete_files=()
+        ;;
     *)
-        printf 'Error: invalid theme choice %q. Enter 1, 2, 3, or 4.\n' "$choice" >&2
+        printf 'Error: invalid theme choice %q. Enter 1, 2, 3, 4, or 5.\n' "$choice" >&2
         exit 1
         ;;
 esac
@@ -79,7 +87,7 @@ done
 
 BACKUP_DIR="${HOME}/.config/${backup_name}-$(date +%Y%m%d-%H%M%S)-$$"
 mkdir -p -- "${BACKUP_DIR}/originals"
-if [[ "$version" == 'V2.0' || "$version" == 'V3.0' ]]; then
+if [[ "$version" == 'V2.0' || "$version" == 'V3.0' || "$version" == 'V4.0' ]]; then
     mkdir -p -- "${BACKUP_DIR}/installed"
 fi
 
@@ -107,7 +115,7 @@ for relative_path in "${managed_files[@]}"; do
     fi
     install -D -m "$mode" "${THEME_DIR}/${theme_path}/${relative_path}" "$target"
 
-    if [[ "$version" == 'V2.0' || "$version" == 'V3.0' ]]; then
+    if [[ "$version" == 'V2.0' || "$version" == 'V3.0' || "$version" == 'V4.0' ]]; then
         mkdir -p -- "${BACKUP_DIR}/installed/$(dirname "$relative_path")"
         cp -a -- "$target" "${BACKUP_DIR}/installed/${relative_path}"
     fi

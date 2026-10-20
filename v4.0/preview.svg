@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#111319"/>
+      <stop offset=".55" stop-color="#202731"/>
+      <stop offset="1" stop-color="#11151c"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#38bdf8" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1440" height="480" fill="url(#wall)"/>
+  <ellipse cx="260" cy="300" rx="420" ry="260" fill="url(#glow)"/>
+  <ellipse cx="1200" cy="270" rx="380" ry="240" fill="#4ade80" opacity=".04"/>
+  <path d="M0 378C230 275 420 426 670 330s500-80 770-10v160H0Z" fill="#080a0e" opacity=".42"/>
+
+  <rect x="0" y="0" width="1440" height="34" fill="#18181b"/>
+  <path d="M0 33.5h1440" stroke="#ffffff" stroke-opacity=".08"/>
+  <g font-family="Symbols Nerd Font Mono, monospace" font-size="12" font-weight="500">
+    <rect x="0" y="0" width="34" height="34" fill="#38bdf8"/>
+    <text x="17" y="22" text-anchor="middle" fill="#18181b">1</text>
+    <text x="48" y="22" fill="#a1a1aa">2</text>
+    <text x="75" y="22" fill="#a1a1aa">3</text>
+    <text x="102" y="22" fill="#a1a1aa">4</text>
+    <text x="129" y="22" fill="#a1a1aa">5</text>
+    <text x="720" y="22" text-anchor="middle" fill="#f4f4f5">Firefox — MangoBar Themes</text>
+    <g fill="#a1a1aa">
+      <text x="1128" y="22">󰖩</text>
+      <text x="1161" y="22">󰂚</text>
+      <text x="1192" y="22"> Tue 20 Oct</text>
+      <text x="1290" y="22"> 12%</text>
+      <text x="1350" y="22">󰍛 48%</text>
+      <text x="1407" y="22" text-anchor="end">󰕾</text>
+    </g>
+    <rect x="1417" y="0" width="23" height="34" fill="#242428"/>
+    <text x="1428" y="22" text-anchor="middle" fill="#fb7185">⏻</text>
+  </g>
+
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+    <text x="720" y="202" fill="#f4f4f5" font-size="28" font-weight="600">Square. Simple. Interactive.</text>
+    <text x="720" y="236" fill="#a1a1aa" font-size="15">A sharp-edged MangoBar layout with controls where you need them.</text>
+    <rect x="672" y="258" width="96" height="2" fill="#38bdf8"/>
+    <text x="720" y="291" fill="#d4d4d8" font-size="13">Workspaces on the left · active window centered</text>
+    <text x="720" y="315" fill="#a1a1aa" font-size="13">Network · notifications · date · CPU · memory · sound · power</text>
+  </g>
+  <text x="720" y="452" text-anchor="middle" fill="#71717a" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="1.4">MANGOBAR V4.0 · SQUARE CORNERS · LINUX DESKTOP ACTIONS</text>
+</svg>

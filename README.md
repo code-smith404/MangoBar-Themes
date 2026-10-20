@@ -12,13 +12,13 @@ cd MangoBar-Themes
 ./install.sh
 ```
 
-Choose V1.0, V1.1, V2.0, or V3.0 (Lumen) when prompted. The installer copies only the selected theme's files into `~/.config/mangobar/`.
+Choose V1.0, V1.1, V2.0, V3.0 (Lumen), or V4.0 (Square) when prompted. The installer copies only the selected theme's files into `~/.config/mangobar/`.
 
 ## Theme previews
 
 Each version has a separate preview image. These are static visual previews; the final appearance depends on your display, installed font, MangoBar build, and system status.
 
-[Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Lumen](#v30--lumen)
+[Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Lumen](#v30--lumen) · [V4.0 Square](#v40--square)
 
 ## V1.0
 
@@ -64,3 +64,16 @@ A dark, macOS-inspired menu bar with understated workspace and file controls, a 
 - [V3.0 setup guide](v3.0/README.md)
 - [Configuration](v3.0/config.jsonc)
 - [Stylesheet](v3.0/style.css)
+
+## V4.0 — Square
+
+A sharp-cornered bar with workspaces on the left, the active window title centered, and icon-only network and sound indicators alongside notifications, date, CPU, memory, and power controls.
+
+![MangoBar V4.0 Square preview](v4.0/preview.svg)
+[Open full-size V4.0 preview](v4.0/preview.svg)
+
+- [V4.0 setup guide](v4.0/README.md)
+- [Configuration](v4.0/config.jsonc)
+- [Stylesheet](v4.0/style.css)
+
+The notification bell opens SwayNotificationCenter; network settings, a calendar, and a system monitor open when matching desktop applications are installed. The setup guide lists these optional integrations and how each bar control behaves.

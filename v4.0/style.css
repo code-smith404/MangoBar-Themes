@@ -1,0 +1,116 @@
+/* Square — a compact, interactive bar with sharp corners. */
+
+@define-color bar #18181B;
+@define-color hover #34343A;
+@define-color text #F4F4F5;
+@define-color secondary #A1A1AA;
+@define-color muted #71717A;
+@define-color accent #38BDF8;
+@define-color danger #FB7185;
+@define-color success #4ADE80;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: 500;
+    color: @text;
+    background-color: none;
+    padding: 0px 5px;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+#bar {
+    background-color: @bar;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+#tags {
+    background-color: none;
+    color: @muted;
+    min-width: 20px;
+    padding: 0px 7px;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+#tags.active {
+    background-color: @accent;
+    color: @bar;
+    font-weight: 700;
+}
+
+#tags.occupied {
+    color: @secondary;
+}
+
+#tags.urgent {
+    background-color: @danger;
+    color: @bar;
+    font-weight: 700;
+}
+
+#tags.empty {
+    background-color: none;
+    color: @muted;
+}
+
+#tags:hover {
+    background-color: @hover;
+    color: @text;
+}
+
+#title {
+    background-color: none;
+    color: @text;
+    padding: 0px 8px;
+    margin: 0px;
+}
+
+#network,
+#custom-notifications,
+#clock,
+#cpu,
+#mem,
+#volume,
+#custom-power {
+    background-color: none;
+    color: @secondary;
+    padding: 0px 7px;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+#network.wifi {
+    color: @success;
+}
+
+#network.ethernet {
+    color: @accent;
+}
+
+#network.disconnected {
+    color: @danger;
+}
+
+#network:hover,
+#custom-notifications:hover,
+#clock:hover,
+#cpu:hover,
+#mem:hover,
+#volume:hover,
+#custom-power:hover {
+    background-color: @hover;
+    color: @text;
+}
+
+#volume {
+    color: @text;
+}
+
+#custom-power {
+    color: @danger;
+    padding-left: 10px;
+    padding-right: 10px;
+}
