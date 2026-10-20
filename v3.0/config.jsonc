@@ -1,34 +1,37 @@
-// Lumen — a dark, macOS-inspired MangoBar menu bar (without an Apple logo).
+// macOS Dark — a minimal dark menu bar for MangoBar, without an Apple logo.
 {
     "layer": "top",
-    "height": 34,
+    "height": 28,
     "buffer-scale": 1,
     "sys-interval": 2,
     "scroll-interval": 100,
 
-    // Menu-style actions on the left; compact system status and clock on the right.
+    // Workspace and app actions on the left; active window centered; status on the right.
     "modules-left": [
-        "custom/workspace-menu",
+        "workspaces",
         "custom/apps-menu",
         "custom/files-menu",
-        "custom/help-menu",
+        "custom/help-menu"
+    ],
+    "modules-center": [
         "window"
     ],
-    "modules-center": [],
     "modules-right": [
         "tray",
         "network",
         "pulseaudio",
         "battery",
         "clock#date",
-        "clock#time",
-        "custom/power"
+        "clock#time"
     ],
 
-    "custom/workspace-menu": {
-        "exec": "printf 'Workspace'",
-        "format": "{}",
-        "on-click": "$HOME/.config/mangobar/scripts/menu.sh workspace"
+    "workspaces": {
+        "hide-empty": true,
+        "pinned": [1, 2, 3, 4, 5],
+        "on-click": "activate",
+        "on-click-right": "toggle",
+        "on-scroll-up": "mmsg dispatch viewtoleft_have_client",
+        "on-scroll-down": "mmsg dispatch viewtoright_have_client"
     },
     "custom/apps-menu": {
         "exec": "printf 'Apps'",
@@ -47,11 +50,11 @@
     },
     "window": {
         "format": "{}",
-        "max-length": 34
+        "max-length": 38
     },
     "tray": {
-        "icon-size": 15,
-        "spacing": 5
+        "icon-size": 14,
+        "spacing": 4
     },
     "network": {
         "format": "{icon}",
@@ -81,10 +84,5 @@
     },
     "clock#time": {
         "format": "{:%H:%M}"
-    },
-    "custom/power": {
-        "exec": "printf '⏻'",
-        "format": "{}",
-        "on-click": "$HOME/.config/mangobar/scripts/power-menu.sh"
     }
 }

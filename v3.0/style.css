@@ -1,80 +1,107 @@
-/* Lumen — dark, macOS-inspired MangoBar menu bar; no Apple logo. */
+/* macOS Dark — a minimal dark desktop menu bar, without Apple branding. */
 
-/* Palette: edit @accent and @accent-strong to personalize the warm highlight. */
-@define-color base #111315;
-@define-color glass #E61A1C20;
-@define-color glass-raised #ED25282D;
-@define-color menu-hover #33373E;
-@define-color text #F3F3F4;
-@define-color secondary #D0D1D3;
-@define-color muted #A2A5AA;
-@define-color accent #E7AE8C;
-@define-color accent-strong #D18E70;
-@define-color accent-soft mix(@glass-raised, @accent, 18%);
-@define-color teal #9AC7BE;
-@define-color red #E98F8F;
-@define-color green #A7CFA8;
+/* Core palette. Edit @accent to change the single workspace highlight. */
+@define-color bar #E61C1C1E;
+@define-color elevated #2C2C2E;
+@define-color hover #3A3A3C;
+@define-color text #F5F5F7;
+@define-color secondary #98989D;
+@define-color muted #636366;
+@define-color accent #0A84FF;
+@define-color danger #FF453A;
+@define-color success #30D158;
+@define-color menu-hover mix(@elevated, @hover, 50%);
 
-/* A unified menu bar: typography first, restrained transparent surfaces. */
+/* Compact, neutral typography and spacing shared by all modules. */
 * {
     font-family: "Inter";
     font-size: 12px;
     font-weight: 500;
     color: @text;
     background-color: none;
-    padding: 2px 6px;
-    margin: 2px;
-    border-radius: 8px;
+    padding: 0px 4px;
+    margin: 0px 1px;
+    border-radius: 0px;
 }
 
+/* Flat full-width glass strip; keep the top edge visually quiet. */
 #bar {
-    background: linear-gradient(to bottom, @glass-raised, @glass);
-    margin: 3px 6px;
-    border-radius: 10px;
+    background-color: @bar;
+    margin: 0px;
+    border-radius: 0px;
 }
 
-/* Menu labels behave like quiet desktop menu titles, not colorful buttons. */
-#custom-workspace-menu,
-#custom-apps-menu,
-#custom-files-menu,
-#custom-help-menu {
+/* Spaces are quiet numbers; only the current space receives a blue marker. */
+#tags {
+    background-color: none;
+    color: @muted;
+    padding: 1px 6px;
+    margin: 1px;
+    border-radius: 6px;
+}
+
+#tags.active {
+    background-color: @accent;
+    color: @text;
+    font-weight: 600;
+}
+
+#tags.occupied {
     color: @secondary;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 1px;
-    margin-right: 1px;
 }
 
-#custom-workspace-menu:hover,
-#custom-apps-menu:hover,
-#custom-files-menu:hover,
-#custom-help-menu:hover {
-    background: @menu-hover;
+#tags.urgent {
+    background-color: @danger;
+    color: @text;
+    font-weight: 600;
+}
+
+#tags.empty {
+    background-color: none;
+    color: @muted;
+}
+
+#tags:hover {
+    background-color: @elevated;
     color: @text;
 }
 
-/* The active window is subdued so the menu labels remain the visual anchor. */
+/* App menu labels use the restrained spacing and contrast of desktop menus. */
+#custom-apps-menu,
+#custom-files-menu,
+#custom-help-menu {
+    background-color: none;
+    color: @text;
+    padding: 2px 7px;
+    margin: 0px;
+    border-radius: 6px;
+}
+
+#custom-apps-menu:hover,
+#custom-files-menu:hover,
+#custom-help-menu:hover {
+    background-color: @elevated;
+    color: @text;
+}
+
+/* Center title has no chip or background. */
 #title {
-    background: none;
-    color: @muted;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 6px;
+    background-color: none;
+    color: @secondary;
+    padding: 0px 6px;
+    margin: 0px;
 }
 
-/* System indicators sit together as a quiet right-side status cluster. */
-#tray {
-    background: none;
+/* Status items share a quiet text-only treatment. */
+#tray,
+#network,
+#volume,
+#battery,
+#clock {
+    background-color: none;
     color: @secondary;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#network {
-    background: none;
-    color: @secondary;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0px 4px;
+    margin: 0px 1px;
 }
 
 #network.connected,
@@ -83,32 +110,11 @@
 }
 
 #network.ethernet {
-    color: @teal;
+    color: @secondary;
 }
 
 #network.disconnected {
-    color: @red;
-}
-
-#volume {
-    background: none;
-    color: @secondary;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#battery {
-    background: none;
-    color: @secondary;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#clock {
-    background: none;
-    color: @text;
-    padding-left: 5px;
-    padding-right: 5px;
+    color: @muted;
 }
 
 #clock.date {
@@ -120,35 +126,21 @@
     font-weight: 600;
 }
 
-/* Power is present but deliberately low-key; no logo or oversized accent. */
-#custom-power {
-    background: @accent-soft;
-    color: @accent;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: 4px;
-}
-
-#custom-power:hover {
-    background: @accent-strong;
-    color: @base;
-}
-
-/* Tray context menus match the dark translucent menu-bar palette. */
+/* Tray menus follow the same restrained dark palette. */
 menu {
-    background: linear-gradient(to bottom, @glass-raised, @base);
+    background-color: @elevated;
     color: @text;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 menuitem {
-    background: none;
+    background-color: none;
     color: @secondary;
-    padding: 5px 9px;
-    border-radius: 7px;
+    padding: 4px 8px;
+    border-radius: 5px;
 }
 
 menuitem:hover {
-    background: @menu-hover;
+    background-color: @hover;
     color: @text;
 }

@@ -1,20 +1,20 @@
-# MangoBar V3.0 — Lumen
+# MangoBar V3.0 — macOS Dark
 
-Lumen is a dark, macOS-inspired menu bar for MangoWM. It uses restrained menu labels on the left, a subdued active-window title, and a compact tray/network/audio/battery/clock cluster on the right. The Apple logo is intentionally omitted.
+A compact, dark desktop menu bar with flat full-width styling, quiet menu labels, a centered window title, and a subdued system-status cluster. It takes inspiration from minimal desktop menu bars and intentionally does not use Apple branding or the Apple logo.
 
-![V3.0 Lumen dark menu-bar preview](preview.svg)
+![V3.0 macOS Dark menu-bar preview](preview.svg)
 
 ## Install
 
-From the repository root, run the installer and choose **4) V3.0 (Lumen)**:
+From the repository root, run the installer and choose **option 4**:
 
 ```bash
 ./install.sh
 ```
 
-The installer copies `config.jsonc`, `style.css`, and the executable `scripts/menu.sh` and `scripts/power-menu.sh` into `~/.config/mangobar/`. Existing files are backed up under `~/.config/mangobar-v3.0-backup-*`.
+The installer copies `config.jsonc`, `style.css`, and the executable `scripts/menu.sh` and `scripts/power-menu.sh` into `~/.config/mangobar/`.
 
-To install manually from the repository root:
+To copy the files manually from the repository root:
 
 ```bash
 mkdir -p "$HOME/.config/mangobar/scripts"
@@ -23,14 +23,17 @@ install -m 755 v3.0/scripts/menu.sh v3.0/scripts/power-menu.sh \
     "$HOME/.config/mangobar/scripts/"
 ```
 
-## Menu behavior
+## Behavior and limits
 
-The **Workspace** menu switches to the previous or next occupied workspace. **Apps** opens the desktop application launcher. **Files** opens Home, Downloads, or the file manager. **Help** opens MangoBar or MangoWM documentation. The workspace menu uses MangoWM's `mmsg`; the app/menu launchers use `wofi`, `rofi`, or `fuzzel`; file actions use `xdg-open` and an installed file manager.
+- Click a workspace number to activate it; right-click toggles it; scrolling switches through occupied workspaces.
+- **Apps** opens the installed application launcher. **Files** opens Home, Downloads, or the file manager. **Help** opens MangoBar or MangoWM documentation.
+- Click the network item to toggle its alternate transfer-rate display. Click audio to mute/unmute or scroll to adjust volume.
+- The status tray, active-window title, battery, date, and time are native MangoBar modules. The included script also keeps a confirmed power menu available when invoked without an action argument, although it is not shown as a status-bar button.
 
-The system tray is MangoBar's native tray. Click the audio indicator to mute/unmute, scroll it to adjust volume, click the network indicator to toggle its alternate transfer-rate display, and use the power control for confirmed logout/restart/shutdown actions.
+MangoBar cannot show the active application's native File/Edit/View menus, macOS Control Center, or Apple system menus. The labels here trigger Linux desktop actions and are not a full macOS behavior clone.
 
-This is a macOS-inspired Linux bar, not a full macOS menu-bar replacement. MangoBar does not expose active applications' native File/Edit/View/Window menus, Apple system menus, or macOS control-center behavior. The menus here are global desktop actions and do not show app-specific commands.
+## Font and colors
 
-## Customize
+**Inter** is recommended for a clean sans-serif look. Install Inter through your distribution's font packages or from its official font distribution, then set `font-family` to `Inter` in `style.css`. `system-ui` or another installed sans-serif is a suitable substitute.
 
-The palette is defined at the top of `style.css`. Adjust `@accent` and `@accent-strong` to change the warm highlight. **Inter** is the recommended font; replace it in the global `font-family` rule if it is not installed. Nerd Font icons are only used for audio and power indicators; Maple Mono NF or another Nerd Font is recommended for those glyphs.
+Colors are defined at the top of `style.css`. `@accent` controls the active workspace color; the other variables control the dark bar, hover surfaces, text, and status states.
