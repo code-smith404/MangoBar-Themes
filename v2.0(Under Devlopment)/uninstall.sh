@@ -6,6 +6,7 @@ BACKUP_DIR="$(ls -dt "${HOME}"/.config/mangobar-v2-backup-* 2>/dev/null | head -
 managed_files=(
     config.jsonc
     style.css
+    wallpaper.svg
     scripts/power-menu.sh
 )
 obsolete_files=(

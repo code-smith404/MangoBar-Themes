@@ -34,7 +34,7 @@ case "$choice" in
         version='V2.0'
         theme_path='v2.0(Under Devlopment)'
         backup_name='mangobar-v2-backup'
-        managed_files=(config.jsonc style.css scripts/power-menu.sh)
+        managed_files=(config.jsonc style.css wallpaper.svg)
         obsolete_files=(
             cava.conf
             theme.conf
@@ -44,6 +44,7 @@ case "$choice" in
             scripts/idle-toggle.sh
             scripts/media.sh
             scripts/network-menu.sh
+            scripts/power-menu.sh
             scripts/visualizer-toggle.sh
             scripts/weather.sh
             scripts/volume.sh

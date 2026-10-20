@@ -1,193 +1,145 @@
-/* Ember Glass — MangoBar V2.0 */
+/* Midnight Lake — midnight glass with lavender and teal accents. */
+@define-color base #0A1020;
+@define-color panel #D90D1428;
+@define-color panel-edge #E6162038;
+@define-color surface #72202C49;
+@define-color text #F3F5FF;
+@define-color muted #C2C8DA;
+@define-color quiet #8993AD;
+@define-color lavender #C3A6FF;
+@define-color lavender-deep #9E80E8;
+@define-color teal #82D8D0;
+@define-color red #F28D9A;
 
-/* Colors: change @accent to retune the warm highlight throughout the theme. */
-@define-color base #171513;
-@define-color panel #E61C1918;
-@define-color surface #E62B2623;
-@define-color surface-raised #EB39312C;
-@define-color text #F5EEE8;
-@define-color muted #C7B8AB;
-@define-color quiet #9E9187;
-@define-color accent #F2A47F;
-@define-color accent-deep #D98267;
-@define-color accent-soft mix(@surface, @accent, 14%);
-@define-color teal #92C9BF;
-@define-color gold #E8C99E;
-@define-color green #A8D2AC;
-@define-color red #EF8790;
-@define-color menu-hover mix(@surface-raised, @accent, 15%);
-
-/* Global typography and the shared 4/6/8/12px spacing rhythm. */
 * {
-    font-family: "Maple Mono NF";
+    font-family: "JetBrainsMono Nerd Font";
     font-size: 12px;
     font-weight: 500;
     color: @text;
     background-color: none;
-    padding: 2px 6px;
+    padding: 3px 7px;
     margin: 2px 3px;
-    border-radius: 12px;
-}
-
-/* One continuous pane of tinted glass, lifted by a quiet warm gradient. */
-#bar {
-    background: linear-gradient(to bottom, @surface-raised, @panel);
-    margin: 4px 8px;
-    border-radius: 15px;
-}
-
-/* Workspaces: subdued at rest, softly lifted on hover, warm when active. */
-#tags {
-    background: @surface;
-    color: @muted;
-    padding: 2px 8px;
-    margin: 2px;
     border-radius: 10px;
 }
 
+/* MangoBar supports translucent colors and gradients, but not backdrop blur. */
+#bar {
+    background: linear-gradient(to bottom, @panel-edge, @panel);
+    margin: 5px 10px;
+    border-radius: 15px;
+}
+
+#tags {
+    background: @surface;
+    color: @muted;
+    padding: 3px 10px;
+    margin: 2px;
+    border-radius: 9px;
+}
+
 #tags.active {
-    background: linear-gradient(to right, @accent-deep, @accent);
+    background: linear-gradient(to bottom, @lavender, @lavender-deep);
     color: @base;
-    font-weight: 700;
 }
 
 #tags.occupied {
-    background: mix(@surface-raised, @teal, 12%);
-    color: @teal;
-}
-
-#tags.urgent {
-    background: linear-gradient(to right, @red, mix(@red, @gold, 22%));
-    color: @base;
-    font-weight: 700;
+    background: @surface;
+    color: @muted;
 }
 
 #tags.empty {
-    background: none;
+    background: @surface;
     color: @quiet;
 }
 
 #tags:hover {
-    background: @surface-raised;
+    background: #A3324162;
     color: @text;
-}
-
-/* Current layout and window title stay quiet beside the active workspace. */
-#layout {
-    background: @accent-soft;
-    color: @gold;
 }
 
 #title {
     background: none;
-    color: @muted;
-    padding-left: 8px;
-    padding-right: 8px;
+    color: @text;
+    padding-left: 12px;
+    padding-right: 12px;
     margin-left: 4px;
     margin-right: 4px;
 }
 
-/* Date and time form a compact, balanced center anchor. */
-#clock {
-    background: @surface;
-    color: @muted;
-    padding-left: 10px;
-    padding-right: 10px;
+#cpu {
+    background: none;
+    color: @lavender;
 }
 
-#clock.date {
-    color: @gold;
+#mem {
+    background: none;
+    color: @teal;
 }
 
-#clock.time {
-    background: linear-gradient(to right, @accent-deep, @accent);
-    color: @base;
-    font-weight: 700;
-    min-width: 52px;
-}
-
-/* System modules share a glass surface with restrained, readable accents. */
 #network {
-    background: @surface;
+    background: none;
     color: @teal;
-}
-
-#network.connected,
-#network.wifi {
-    color: @teal;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 #network.ethernet {
-    color: @gold;
+    color: @muted;
 }
 
 #network.disconnected {
-    background: mix(@surface, @red, 18%);
     color: @red;
 }
 
 #volume {
-    background: @surface;
-    color: @gold;
+    background: none;
+    color: @lavender;
 }
 
-#cpu {
-    background: @surface;
-    color: @accent;
+#clock {
+    background: none;
+    color: @muted;
 }
 
-#mem,
-#memory {
-    background: @surface;
+#clock.date {
+    color: @muted;
+}
+
+#clock.time {
     color: @teal;
 }
 
-#battery {
-    background: @surface;
-    color: @green;
-}
-
-#brightness {
-    background: @surface;
-    color: @gold;
-}
-
-/* Tray icons and context menus use the same warm glass palette. */
-#tray {
-    background: @surface;
-    color: @muted;
-    padding: 2px 6px;
-}
-
-menu {
-    background: linear-gradient(to bottom, @surface-raised, @base);
-    color: @text;
-    border-radius: 12px;
-}
-
-menuitem {
+#custom-divider-cpu-memory {
     background: none;
-    color: @muted;
-    padding: 5px 10px;
-    border-radius: 8px;
+    color: #667E8CA8;
+    padding: 0px;
+    margin: 0px 2px;
 }
 
-menuitem:hover {
-    background: @menu-hover;
-    color: @text;
+#custom-divider-memory-network {
+    background: none;
+    color: #667E8CA8;
+    padding: 0px;
+    margin: 0px 2px;
 }
 
-/* The power action is the sole high-emphasis control on the right. */
-#custom-power {
-    background: linear-gradient(to right, @accent-deep, @accent);
-    color: @base;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 4px;
-    font-weight: 700;
+#custom-divider-network-volume {
+    background: none;
+    color: #667E8CA8;
+    padding: 0px;
+    margin: 0px 2px;
 }
 
-#custom-power:hover {
-    background: linear-gradient(to right, @accent, @gold);
-    color: @base;
+#custom-divider-volume-date {
+    background: none;
+    color: #667E8CA8;
+    padding: 0px;
+    margin: 0px 2px;
+}
+
+#custom-divider-date-time {
+    background: none;
+    color: #667E8CA8;
+    padding: 0px;
+    margin: 0px 2px;
 }

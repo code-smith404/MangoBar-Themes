@@ -43,16 +43,17 @@ Compact update with a live network-speed indicator:
 
 ## V2.0 (Under Development)
 
-Experimental Arch Linux + MangoWM setup based on MangoBar's native JSONC configuration and styling support. Includes a compact bar with tags, active window title, centered date and time, network/audio/system modules, and a confirmed power menu.
+Experimental Arch Linux + MangoWM setup using MangoBar's native Wayland bar, workspace integration, and active-window title. Midnight Lake centers the live window title and puts workspaces 1–4 on the left, with CPU, memory, Wi-Fi, volume, date, and time on the right. It includes a matching sunset wallpaper and no battery module.
 
-![MangoBar V2.0 Ember Glass preview](previews/v2.0.svg)
+![MangoBar V2.0 Midnight Lake preview](previews/v2.0.svg)
 [Open full-size V2.0 preview](previews/v2.0.svg)
 
 - [V2.0 setup guide](v2.0%28Under%20Devlopment%29/README.md)
 - [Configuration](v2.0%28Under%20Devlopment%29/config.jsonc)
 - [Stylesheet](v2.0%28Under%20Devlopment%29/style.css)
+- [Sunset wallpaper](v2.0%28Under%20Devlopment%29/wallpaper.svg)
 
-The setup targets the currently published MangoBar documentation. No MangoBar binary or version is installed in this workspace, so the exact local runtime version could not be identified or launched here.
+The setup targets MangoBar's documented MangoWM integration and native modules. The MangoBar binary is not installed in this workspace, so it could not be launched here.
 
 ## V3.0 — Lumen
 

@@ -1,35 +1,27 @@
-# MangoBar V2.0 — Ember Glass (Under Development)
+# MangoBar V2.0 — Midnight Lake (Under Development)
 
-Ember Glass is a polished dark-glass bar for MangoWM, pairing a deep charcoal panel and soft gradients with a warm peach accent, cool teal status colors, and gently rounded modules.
+Midnight Lake is a dark, translucent midnight-blue theme for Arch Linux sessions running MangoWM. It uses **MangoBar**, the native Wayland layer-shell bar for MangoWM—not Waybar, Hyprland, or Sway. The workspace tags and active-window title come directly from MangoBar's MangoWM integration; the configuration does not add guessed compositor commands or replace MangoWM files.
 
-## Compatibility and supported features
+## Layout
 
-This configuration follows the currently published MangoBar configuration, module, and styling documentation. MangoBar itself is not installed in the development workspace, so its exact local version and runtime behavior could not be checked. On your Arch system, use `mangobar -v` to see the installed version.
+- **Left:** MangoWM workspaces 1–4, kept visible with MangoBar's `pinned` tags option. The active tag is lavender; inactive tags are subdued.
+- **Center:** the live title of the active window, centered by MangoBar. It is not a static label or brand name.
+- **Right:** live CPU and memory usage, network-link icon, volume and mute state, localized date, and 24-hour time. Fine vertical dividers separate the modules.
+- **No battery, tray, or power module** is included.
 
-The configuration uses documented MangoBar features:
+CPU and memory are reported as percentages by MangoBar's native modules. The network icon reflects Wi-Fi signal strength or the wired/disconnected state. Volume comes from MangoBar's PulseAudio module; on a PipeWire desktop, the `pipewire-pulse` compatibility service supplies that interface.
 
-- `workspaces` tags with an active state, click-to-activate, and right-click toggle.
-- `window` title with a 42-character maximum width.
-- Centered `clock#date` and `clock#time`.
-- A system tray plus native `network`, `pulseaudio`, `cpu`, `memory`, and `battery` modules.
-- A `custom/power` module that opens the included power menu.
-- MangoBar CSS colors, gradients, `mix()`, rounded corners, and module hover/active states.
+MangoBar's documented styling supports alpha colors, gradients, and rounded corners, but not backdrop blur. This theme uses a tinted, translucent panel to create a restrained glass effect without relying on unsupported CSS.
 
-MangoBar's documented CSS does not include blur, shadows, borders, CSS transitions, or general GTK/Web CSS. Those effects are not used here. The documented module actions are pointer actions; this setup does not claim keyboard navigation or screen-reader support from MangoBar.
+## Arch Linux requirements
 
-## Arch Linux dependencies
-
-This guide assumes you already have an Arch Linux MangoWM session. MangoWM installation and configuration are managed separately; V2 does not overwrite compositor files. If MangoBar is already installed, skip its build dependencies. The upstream installation guide currently documents these Arch packages for building from source:
+Run this theme inside a working MangoWM Wayland session with MangoBar installed. If MangoBar is not installed, its upstream guide documents this Arch build setup:
 
 ```bash
 sudo pacman -S --needed base-devel git meson ninja pkgconf cjson \
   wayland wayland-protocols fcft tllist pixman cairo pango libpulse \
   systemd-libs gdk-pixbuf2 alsa-lib
-```
 
-Build and install MangoBar if needed:
-
-```bash
 git clone https://github.com/mangowm/mangobar.git
 cd mangobar
 meson setup build -Dprefix=/usr
@@ -37,90 +29,59 @@ ninja -C build
 sudo ninja -C build install
 ```
 
-For this theme's interactive power menu and PipeWire volume controls, install:
+Install a Nerd Font for the module icons. The stylesheet defaults to **JetBrainsMono Nerd Font**; change `font-family` in `style.css` if you use another installed Nerd Font.
 
-```bash
-sudo pacman -S --needed wofi pipewire-pulse wireplumber
-```
+## Install and run
 
-`wofi` is the recommended menu. The script also supports `rofi` or `fuzzel` if already installed. If none is available, the power menu reports the missing dependency and does not perform an action. `notify-send` from `libnotify` is optional and is used only to surface action errors graphically. Workspace scrolling uses MangoWM's `mmsg` command, which should be available with MangoWM.
-
-MangoBar's native volume module uses its PulseAudio interface. `pipewire-pulse` supplies that interface on a PipeWire desktop; `wpctl` from WirePlumber handles mute and volume actions. The network module uses system network information without requiring NetworkManager. The battery module reads battery status when a battery is present and is hidden on systems without one. **Maple Mono NF** is the recommended Nerd Font for the icons used in this theme; install it or change `font-family` in `style.css` to a font installed on your system.
-
-## Install
-
-From the repository root, run the installer and select V2.0:
+From the repository root, select V2.0 in the theme installer:
 
 ```bash
 ./install.sh
 ```
 
-The installer copies only `config.jsonc`, `style.css`, and `scripts/power-menu.sh` into `~/.config/mangobar/`. It does not install system packages or modify MangoWM configuration. Existing target files and known files from the previous V2 theme are backed up under `~/.config/mangobar-v2-backup-*` before replacement or cleanup. The executable bit is set on the installed power-menu script.
+The installer copies `config.jsonc`, `style.css`, and `wallpaper.svg` to `~/.config/mangobar/`, backing up files it replaces. It does not install packages, change MangoWM configuration, or start a wallpaper service.
 
-To copy the theme manually from the repository root instead:
-
-```bash
-mkdir -p "$HOME/.config/mangobar/scripts"
-cp "v2.0(Under Devlopment)/config.jsonc" \
-   "v2.0(Under Devlopment)/style.css" \
-   "$HOME/.config/mangobar/"
-install -m 755 "v2.0(Under Devlopment)/scripts/power-menu.sh" \
-    "$HOME/.config/mangobar/scripts/power-menu.sh"
-```
-
-## Ember Glass colors and fonts
-
-The main palette is defined at the top of `style.css`. Change `@accent` for the warm highlight and `@accent-deep` for its darker gradient endpoint; `@teal` and `@gold` control the cool and secondary accents. The theme uses **Maple Mono NF** for its compact typography and Nerd Font icons.
-
-To launch or test the theme inside a MangoWM session:
+Start or restart the bar from a MangoWM session:
 
 ```bash
 mangobar
 ```
 
-MangoBar defaults to `~/.config/mangobar/config.jsonc` and `style.css`. For a one-off launch with explicit paths:
+MangoBar reads `~/.config/mangobar/config.jsonc` and `style.css` by default. To test alternate files:
 
 ```bash
 mangobar -c "$HOME/.config/mangobar/config.jsonc" \
          -s "$HOME/.config/mangobar/style.css"
 ```
 
-To start the bar automatically with MangoWM, add `mangobar` to your existing MangoWM autostart configuration using the syntax supported by your installed MangoWM version. The installer intentionally leaves compositor configuration untouched.
+Add `mangobar` to the autostart method already used by your MangoWM session if you want it to launch automatically. The installer intentionally leaves compositor configuration untouched.
 
-## Reload and uninstall
+## Wallpaper
 
-The documented MangoBar command-line options do not include a reload flag. If running it in a terminal, stop it with `Ctrl+C` and run `mangobar` again after editing the configuration or stylesheet. If your session starts it automatically, restart the bar using the method configured for your session.
+`wallpaper.svg` is a 2560×1440 sunset landscape with layered indigo mountains, a coral sun, a dark pine forest, and a reflective lake. It is installed at `~/.config/mangobar/wallpaper.svg` as a separate wallpaper asset; MangoBar does not set the desktop background. Apply it with the wallpaper utility already configured for your session. No specific wallpaper daemon or compositor command is assumed.
 
-To remove this theme and restore the latest install backup:
+## Customize and uninstall
 
-```bash
-cd "v2.0(Under Devlopment)"
-./uninstall.sh
-```
+- Edit `config.jsonc` to change module order, workspace labels, refresh interval, or window-title width. The center group is MangoBar's documented true-center placement.
+- Edit `style.css` to adjust the midnight palette, lavender/teal accents, transparency, radius, and spacing. Only MangoBar's supported CSS subset is used.
+- The clock follows the system locale. Change its `strftime` format in the two `clock` module entries to customize the date or time.
+- Remove the theme and restore the latest installer backup with:
 
-The uninstaller only processes the files managed by this theme. If a newly installed file has been edited since installation and there was no previous version to restore, it preserves that modified file.
+  ```bash
+  cd "v2.0(Under Devlopment)"
+  ./uninstall.sh
+  ```
 
-## Layout and customization
+## Upstream documentation
 
-- **Left:** MangoWM tags and the active window title.
-- **Center:** localized weekday/date and a 24-hour clock.
-- **Right:** tray, connection/transfer speed, volume/mute, CPU, memory, battery, and power menu.
-- Network left-click toggles the module's documented alternate speed display. Volume left-click toggles mute; scrolling adjusts volume.
-- Log out, restart, and power off each require a second explicit confirmation.
-- Window and network labels are width-limited to reduce crowding. The bar uses a 38-pixel logical height and follows the output scale.
-
-Edit `config.jsonc` for module order, labels, refresh interval, and actions. Edit `style.css` using only the MangoBar styling properties documented in its [Styling guide](https://github.com/mangowm/mangobar/wiki/Styling). MangoBar does not document adaptive module hiding or CSS breakpoints, so on a narrow display reduce labels or remove modules in the configuration.
-
-## Upstream references
-
-- [MangoBar installation](https://github.com/mangowm/mangobar/wiki/Installation)
-- [MangoBar configuration](https://github.com/mangowm/mangobar/wiki/Configuration)
-- [MangoBar styling](https://github.com/mangowm/mangobar/wiki/Styling)
-- [MangoBar tags module](https://github.com/mangowm/mangobar/wiki/Module:-Tags)
-- [MangoBar window module](https://github.com/mangowm/mangobar/wiki/Module:-Window)
-- [MangoBar clock module](https://github.com/mangowm/mangobar/wiki/Module:-Clock)
-- [MangoBar network module](https://github.com/mangowm/mangobar/wiki/Module:-Network)
-- [MangoBar CPU module](https://github.com/mangowm/mangobar/wiki/Module:-CPU)
-- [MangoBar memory module](https://github.com/mangowm/mangobar/wiki/Module:-Memory)
-- [MangoBar battery module](https://github.com/mangowm/mangobar/wiki/Module:-Battery)
-- [MangoBar custom module](https://github.com/mangowm/mangobar/wiki/Module:-Custom)
+- [MangoBar repository and MangoWM compatibility](https://github.com/mangowm/mangobar)
+- [Installation](https://github.com/mangowm/mangobar/wiki/Installation)
+- [Configuration and module placement](https://github.com/mangowm/mangobar/wiki/Configuration)
+- [Styling](https://github.com/mangowm/mangobar/wiki/Styling)
+- [Workspace tags](https://github.com/mangowm/mangobar/wiki/Module:-Tags)
+- [Active window title](https://github.com/mangowm/mangobar/wiki/Module:-Window)
+- [CPU](https://github.com/mangowm/mangobar/wiki/Module:-CPU)
+- [Memory](https://github.com/mangowm/mangobar/wiki/Module:-Memory)
+- [Network](https://github.com/mangowm/mangobar/wiki/Module:-Network)
+- [Clock](https://github.com/mangowm/mangobar/wiki/Module:-Clock)
+- [Custom modules](https://github.com/mangowm/mangobar/wiki/Module:-Custom)
