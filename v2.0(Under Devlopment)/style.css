@@ -1,97 +1,115 @@
-@define-color base #1E1E2E;
-@define-color panel #E61E1E2E;
-@define-color surface #E62B2B3A;
-@define-color surface-raised #EB353546;
-@define-color text #CDD6F4;
-@define-color muted #A6ADC8;
-@define-color peach #FAB387;
-@define-color gold #F9E2AF;
-@define-color teal #94E2D5;
-@define-color green #A6E3A1;
-@define-color red #F38BA8;
+/* Ember Glass — MangoBar V2.0 */
 
+/* Colors: change @accent to retune the warm highlight throughout the theme. */
+@define-color base #171513;
+@define-color panel #E61C1918;
+@define-color surface #E62B2623;
+@define-color surface-raised #EB39312C;
+@define-color text #F5EEE8;
+@define-color muted #C7B8AB;
+@define-color quiet #9E9187;
+@define-color accent #F2A47F;
+@define-color accent-deep #D98267;
+@define-color accent-soft mix(@surface, @accent, 14%);
+@define-color teal #92C9BF;
+@define-color gold #E8C99E;
+@define-color green #A8D2AC;
+@define-color red #EF8790;
+@define-color menu-hover mix(@surface-raised, @accent, 15%);
+
+/* Global typography and the shared 4/6/8/12px spacing rhythm. */
 * {
-    font-family: "monospace";
-    font-size: 11px;
+    font-family: "Maple Mono NF";
+    font-size: 12px;
     font-weight: 500;
     color: @text;
     background-color: none;
-    padding: 2px 7px;
-    margin: 3px 2px;
-    border-radius: 9px;
+    padding: 2px 6px;
+    margin: 2px 3px;
+    border-radius: 12px;
 }
 
+/* One continuous pane of tinted glass, lifted by a quiet warm gradient. */
 #bar {
-    background: @panel;
+    background: linear-gradient(to bottom, @surface-raised, @panel);
     margin: 4px 8px;
-    border-radius: 11px;
+    border-radius: 15px;
 }
 
+/* Workspaces: subdued at rest, softly lifted on hover, warm when active. */
 #tags {
     background: @surface;
     color: @muted;
-    padding: 2px 5px;
+    padding: 2px 8px;
     margin: 2px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 #tags.active {
-    background: @peach;
+    background: linear-gradient(to right, @accent-deep, @accent);
     color: @base;
+    font-weight: 700;
 }
 
 #tags.occupied {
-    background: @surface-raised;
-    color: @text;
+    background: mix(@surface-raised, @teal, 12%);
+    color: @teal;
 }
 
 #tags.urgent {
-    background: @red;
+    background: linear-gradient(to right, @red, mix(@red, @gold, 22%));
     color: @base;
+    font-weight: 700;
 }
 
 #tags.empty {
     background: none;
-    color: @muted;
+    color: @quiet;
 }
 
-#tags:hover,
-#workspaces button:hover {
+#tags:hover {
     background: @surface-raised;
+    color: @text;
+}
+
+/* Current layout and window title stay quiet beside the active workspace. */
+#layout {
+    background: @accent-soft;
     color: @gold;
 }
 
 #title {
     background: none;
-    color: @text;
-    margin-left: 5px;
-    margin-right: 5px;
+    color: @muted;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
+/* Date and time form a compact, balanced center anchor. */
 #clock {
     background: @surface;
     color: @muted;
-    padding-left: 9px;
-    padding-right: 9px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #clock.date {
-    color: @peach;
+    color: @gold;
 }
 
-#cpu {
-    background: @surface;
-    color: @peach;
+#clock.time {
+    background: linear-gradient(to right, @accent-deep, @accent);
+    color: @base;
+    font-weight: 700;
+    min-width: 52px;
 }
 
-#mem {
-    background: @surface;
-    color: @teal;
-}
-
+/* System modules share a glass surface with restrained, readable accents. */
 #network {
     background: @surface;
-    color: @gold;
+    color: @teal;
 }
 
 #network.connected,
@@ -104,6 +122,7 @@
 }
 
 #network.disconnected {
+    background: mix(@surface, @red, 18%);
     color: @red;
 }
 
@@ -112,15 +131,63 @@
     color: @gold;
 }
 
+#cpu {
+    background: @surface;
+    color: @accent;
+}
+
+#mem,
+#memory {
+    background: @surface;
+    color: @teal;
+}
+
 #battery {
     background: @surface;
     color: @green;
 }
 
+#brightness {
+    background: @surface;
+    color: @gold;
+}
+
+/* Tray icons and context menus use the same warm glass palette. */
+#tray {
+    background: @surface;
+    color: @muted;
+    padding: 2px 6px;
+}
+
+menu {
+    background: linear-gradient(to bottom, @surface-raised, @base);
+    color: @text;
+    border-radius: 12px;
+}
+
+menuitem {
+    background: none;
+    color: @muted;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+menuitem:hover {
+    background: @menu-hover;
+    color: @text;
+}
+
+/* The power action is the sole high-emphasis control on the right. */
 #custom-power {
-    background: @peach;
+    background: linear-gradient(to right, @accent-deep, @accent);
     color: @base;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 4px;
+    font-weight: 700;
+}
+
+#custom-power:hover {
+    background: linear-gradient(to right, @accent, @gold);
+    color: @base;
 }

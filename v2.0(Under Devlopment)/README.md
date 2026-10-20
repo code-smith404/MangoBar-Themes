@@ -1,6 +1,6 @@
-# MangoBar V2.0 (Under Development)
+# MangoBar V2.0 — Ember Glass (Under Development)
 
-A compact dark status bar configuration for MangoWM using MangoBar's native JSONC modules and CSS subset. The palette uses translucent charcoal with peach and gold accents, plain text labels, and a rounded bar.
+Ember Glass is a polished dark-glass bar for MangoWM, pairing a deep charcoal panel and soft gradients with a warm peach accent, cool teal status colors, and gently rounded modules.
 
 ## Compatibility and supported features
 
@@ -9,11 +9,11 @@ This configuration follows the currently published MangoBar configuration, modul
 The configuration uses documented MangoBar features:
 
 - `workspaces` tags with an active state, click-to-activate, and right-click toggle.
-- `window` title with a 280-pixel maximum width.
+- `window` title with a 42-character maximum width.
 - Centered `clock#date` and `clock#time`.
-- Native `network`, `pulseaudio`, `cpu`, `memory`, and `battery` modules.
+- A system tray plus native `network`, `pulseaudio`, `cpu`, `memory`, and `battery` modules.
 - A `custom/power` module that opens the included power menu.
-- MangoBar's documented CSS properties, selectors, alpha colors, and rounded corners.
+- MangoBar CSS colors, gradients, `mix()`, rounded corners, and module hover/active states.
 
 MangoBar's documented CSS does not include blur, shadows, borders, CSS transitions, or general GTK/Web CSS. Those effects are not used here. The documented module actions are pointer actions; this setup does not claim keyboard navigation or screen-reader support from MangoBar.
 
@@ -45,7 +45,7 @@ sudo pacman -S --needed wofi pipewire-pulse wireplumber
 
 `wofi` is the recommended menu. The script also supports `rofi` or `fuzzel` if already installed. If none is available, the power menu reports the missing dependency and does not perform an action. `notify-send` from `libnotify` is optional and is used only to surface action errors graphically. Workspace scrolling uses MangoWM's `mmsg` command, which should be available with MangoWM.
 
-MangoBar's native volume module uses its PulseAudio interface. `pipewire-pulse` supplies that interface on a PipeWire desktop; `wpctl` from WirePlumber handles mute and volume actions. The network module uses system network information without requiring NetworkManager. The battery module reads battery status when a battery is present and is hidden on systems without one. It displays percentage and status (including charging); the documented module does not expose a separate low-battery threshold or state class. JetBrains Mono Nerd Font is optional; the configuration uses plain text labels and a generic monospace font.
+MangoBar's native volume module uses its PulseAudio interface. `pipewire-pulse` supplies that interface on a PipeWire desktop; `wpctl` from WirePlumber handles mute and volume actions. The network module uses system network information without requiring NetworkManager. The battery module reads battery status when a battery is present and is hidden on systems without one. **Maple Mono NF** is the recommended Nerd Font for the icons used in this theme; install it or change `font-family` in `style.css` to a font installed on your system.
 
 ## Install
 
@@ -56,6 +56,21 @@ From the repository root, run the installer and select V2.0:
 ```
 
 The installer copies only `config.jsonc`, `style.css`, and `scripts/power-menu.sh` into `~/.config/mangobar/`. It does not install system packages or modify MangoWM configuration. Existing target files and known files from the previous V2 theme are backed up under `~/.config/mangobar-v2-backup-*` before replacement or cleanup. The executable bit is set on the installed power-menu script.
+
+To copy the theme manually from the repository root instead:
+
+```bash
+mkdir -p "$HOME/.config/mangobar/scripts"
+cp "v2.0(Under Devlopment)/config.jsonc" \
+   "v2.0(Under Devlopment)/style.css" \
+   "$HOME/.config/mangobar/"
+install -m 755 "v2.0(Under Devlopment)/scripts/power-menu.sh" \
+    "$HOME/.config/mangobar/scripts/power-menu.sh"
+```
+
+## Ember Glass colors and fonts
+
+The main palette is defined at the top of `style.css`. Change `@accent` for the warm highlight and `@accent-deep` for its darker gradient endpoint; `@teal` and `@gold` control the cool and secondary accents. The theme uses **Maple Mono NF** for its compact typography and Nerd Font icons.
 
 To launch or test the theme inside a MangoWM session:
 
@@ -89,10 +104,10 @@ The uninstaller only processes the files managed by this theme. If a newly insta
 
 - **Left:** MangoWM tags and the active window title.
 - **Center:** localized weekday/date and a 24-hour clock.
-- **Right:** connection/transfer speed, volume/mute, CPU, memory, battery/status, and power menu.
+- **Right:** tray, connection/transfer speed, volume/mute, CPU, memory, battery, and power menu.
 - Network left-click toggles the module's documented alternate speed display. Volume left-click toggles mute; scrolling adjusts volume.
 - Log out, restart, and power off each require a second explicit confirmation.
-- Window and network labels are width-limited to reduce crowding. The bar uses a 32-pixel logical height and follows the output scale.
+- Window and network labels are width-limited to reduce crowding. The bar uses a 38-pixel logical height and follows the output scale.
 
 Edit `config.jsonc` for module order, labels, refresh interval, and actions. Edit `style.css` using only the MangoBar styling properties documented in its [Styling guide](https://github.com/mangowm/mangobar/wiki/Styling). MangoBar does not document adaptive module hiding or CSS breakpoints, so on a narrow display reduce labels or remove modules in the configuration.
 

@@ -1,11 +1,15 @@
+// Ember Glass — MangoBar V2.0
 {
     "layer": "top",
-    "height": 32,
+    "height": 38,
     "buffer-scale": 1,
     "sys-interval": 2,
     "scroll-interval": 100,
+
+    // Left: workspaces and current window. Center: date and time. Right: system status.
     "modules-left": [
         "workspaces",
+        "layout",
         "window"
     ],
     "modules-center": [
@@ -13,6 +17,7 @@
         "clock#time"
     ],
     "modules-right": [
+        "tray",
         "network",
         "pulseaudio",
         "cpu",
@@ -20,6 +25,7 @@
         "battery",
         "custom/power"
     ],
+
     "workspaces": {
         "hide-empty": true,
         "pinned": [1, 2, 3, 4, 5],
@@ -28,42 +34,55 @@
         "on-scroll-up": "mmsg dispatch viewtoleft_have_client",
         "on-scroll-down": "mmsg dispatch viewtoright_have_client"
     },
+    "layout": {
+        "format": "{}"
+    },
     "window": {
         "format": "{}",
-        "max-length": 280
+        "max-length": 42
     },
-    "clock#date": {
-        "format": "{:L%a %d %b}"
-    },
-    "clock#time": {
-        "format": "{:%H:%M}"
+    "tray": {
+        "icon-size": 16,
+        "spacing": 6
     },
     "network": {
-        "format": "NET {ifname}",
-        "format-wifi": "WIFI {ssid}",
-        "format-ethernet": "LAN {ifname}",
-        "format-disconnected": "NET down",
-        "format-alt": "↓{down} ↑{up}",
-        "max-length": 150
+        "format": "{icon} {ifname}",
+        "format-wifi": "{icon} {signal} {ssid}",
+        "format-ethernet": "{icon} {ifname}",
+        "format-disconnected": "{icon} offline",
+        "format-alt": "↓ {down}  ↑ {up}",
+        "icon-wifi": "󰖩",
+        "icon-ethernet": "󰈀",
+        "icon-disconnected": "󰖪",
+        "signal-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "max-length": 24
     },
     "pulseaudio": {
-        "format": "VOL {volume}%",
-        "format-muted": "VOL mute",
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "icons": ["󰝟", "󰕿", "󰕾"],
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
     "cpu": {
-        "format": "CPU {usage}%"
+        "format": "󰍛 {usage}%"
     },
     "memory": {
-        "format": "RAM {}%"
+        "format": "󰘚 {}%"
     },
     "battery": {
-        "format": "BAT {percent}% {status}"
+        "format": "{icon} {percent}%",
+        "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "clock#date": {
+        "format": " {:L%a, %d %b}"
+    },
+    "clock#time": {
+        "format": " {:L%H:%M}"
     },
     "custom/power": {
-        "exec": "printf 'PWR'",
+        "exec": "printf '⏻'",
         "format": "{}",
         "on-click": "$HOME/.config/mangobar/scripts/power-menu.sh"
     }
