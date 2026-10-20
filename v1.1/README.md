@@ -4,10 +4,9 @@ A more compact update to the V1.0 Catppuccin-inspired theme, with a continuously
 
 ## Install
 
-From the repository root, run:
+From the repository root, run the installer and select V1.1:
 
 ```bash
-cd v1.1
 ./install.sh
 ```
 

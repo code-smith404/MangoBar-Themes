@@ -49,10 +49,9 @@ MangoBar's native volume module uses its PulseAudio interface. `pipewire-pulse` 
 
 ## Install
 
-From the repository root:
+From the repository root, run the installer and select V2.0:
 
 ```bash
-cd "v2.0(Under Devlopment)"
 ./install.sh
 ```
 
