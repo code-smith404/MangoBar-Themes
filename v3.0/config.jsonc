@@ -6,12 +6,10 @@
     "sys-interval": 2,
     "scroll-interval": 100,
 
-    // Workspace and app actions on the left; active window centered; status on the right.
+    // Workspaces and files on the left; active window centered; status on the right.
     "modules-left": [
         "workspaces",
-        "custom/apps-menu",
-        "custom/files-menu",
-        "custom/help-menu"
+        "custom/files-menu"
     ],
     "modules-center": [
         "window"
@@ -33,20 +31,10 @@
         "on-scroll-up": "mmsg dispatch viewtoleft_have_client",
         "on-scroll-down": "mmsg dispatch viewtoright_have_client"
     },
-    "custom/apps-menu": {
-        "exec": "printf 'Apps'",
-        "format": "{}",
-        "on-click": "$HOME/.config/mangobar/scripts/menu.sh apps"
-    },
     "custom/files-menu": {
         "exec": "printf 'Files'",
         "format": "{}",
         "on-click": "$HOME/.config/mangobar/scripts/menu.sh files"
-    },
-    "custom/help-menu": {
-        "exec": "printf 'Help'",
-        "format": "{}",
-        "on-click": "$HOME/.config/mangobar/scripts/menu.sh help"
     },
     "window": {
         "format": "{}",

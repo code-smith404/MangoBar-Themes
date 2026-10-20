@@ -56,7 +56,7 @@ The setup targets the currently published MangoBar documentation. No MangoBar bi
 
 ## V3.0 — Lumen
 
-A dark, macOS-inspired menu bar with understated workspace/app/file/help menus, a compact system-status cluster, and no Apple logo.
+A dark, macOS-inspired menu bar with understated workspace and file controls, a compact system-status cluster, and no Apple logo.
 
 ![MangoBar V3.0 Lumen preview](v3.0/preview.svg)
 [Open full-size V3.0 preview](v3.0/preview.svg)

@@ -1,7 +1,7 @@
 /* macOS Dark — a minimal dark desktop menu bar, without Apple branding. */
 
 /* Core palette. Edit @accent to change the single workspace highlight. */
-@define-color bar #E61C1C1E;
+@define-color bar #1C1C1E;
 @define-color elevated #2C2C2E;
 @define-color hover #3A3A3C;
 @define-color text #F5F5F7;
@@ -66,10 +66,8 @@
     color: @text;
 }
 
-/* App menu labels use the restrained spacing and contrast of desktop menus. */
-#custom-apps-menu,
-#custom-files-menu,
-#custom-help-menu {
+/* The file menu uses the restrained spacing and contrast of desktop menus. */
+#custom-files-menu {
     background-color: none;
     color: @text;
     padding: 2px 7px;
@@ -77,9 +75,7 @@
     border-radius: 6px;
 }
 
-#custom-apps-menu:hover,
-#custom-files-menu:hover,
-#custom-help-menu:hover {
+#custom-files-menu:hover {
     background-color: @elevated;
     color: @text;
 }

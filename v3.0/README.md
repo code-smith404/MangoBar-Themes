@@ -26,7 +26,7 @@ install -m 755 v3.0/scripts/menu.sh v3.0/scripts/power-menu.sh \
 ## Behavior and limits
 
 - Click a workspace number to activate it; right-click toggles it; scrolling switches through occupied workspaces.
-- **Apps** opens the installed application launcher. **Files** opens Home, Downloads, or the file manager. **Help** opens MangoBar or MangoWM documentation.
+- **Files** opens Home, Downloads, or the file manager.
 - Click the network item to toggle its alternate transfer-rate display. Click audio to mute/unmute or scroll to adjust volume.
 - The status tray, active-window title, battery, date, and time are native MangoBar modules. The included script also keeps a confirmed power menu available when invoked without an action argument, although it is not shown as a status-bar button.
 
