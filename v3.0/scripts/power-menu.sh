@@ -4,11 +4,11 @@ set -euo pipefail
 report_error() {
     local message="$1"
     if command -v notify-send >/dev/null 2>&1; then
-        if ! notify-send --urgency=critical --app-name="macOS Dark" "Menu" "$message"; then
-            printf 'macOS Dark: %s\n' "$message" >&2
+        if ! notify-send --urgency=critical --app-name="Mist Lake" "Menu" "$message"; then
+            printf 'Mist Lake: %s\n' "$message" >&2
         fi
     else
-        printf 'macOS Dark: %s\n' "$message" >&2
+        printf 'Mist Lake: %s\n' "$message" >&2
     fi
 }
 

@@ -8,7 +8,7 @@ printf 'Choose a MangoBar theme to install:\n'
 printf '  1) V1.0\n'
 printf '  2) V1.1\n'
 printf '  3) V2.0 (Under Development)\n'
-printf '  4) V3.0 (Lumen)\n'
+printf '  4) V3.0 (Mist Lake)\n'
 printf '  5) V4.0 (Square)\n'
 if ! read -r -p 'Enter 1, 2, 3, 4, or 5: ' choice; then
     printf 'Error: no theme choice was provided.\n' >&2

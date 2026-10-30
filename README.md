@@ -12,13 +12,13 @@ cd MangoBar-Themes
 ./install.sh
 ```
 
-Choose V1.0, V1.1, V2.0, V3.0 (Lumen), or V4.0 (Square) when prompted. The installer copies only the selected theme's files into `~/.config/mangobar/`.
+Choose V1.0, V1.1, V2.0, V3.0 (Mist Lake), or V4.0 (Square) when prompted. The installer copies only the selected theme's files into `~/.config/mangobar/`.
 
 ## Theme previews
 
 Each version has a separate preview image. These are static visual previews; the final appearance depends on your display, installed font, MangoBar build, and system status.
 
-[Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Lumen](#v30--lumen) · [V4.0 Square](#v40--square)
+[Jump to: V1.0](#v10) · [V1.1](#v11) · [V2.0](#v20-under-development) · [V3.0 Mist Lake](#v30--mist-lake) · [V4.0 Square](#v40--square)
 
 ## V1.0
 
@@ -55,11 +55,11 @@ Experimental Arch Linux + MangoWM setup using MangoBar's native Wayland bar, wor
 
 The setup targets MangoBar's documented MangoWM integration and native modules. The MangoBar binary is not installed in this workspace, so it could not be launched here.
 
-## V3.0 — Lumen
+## V3.0 — Mist Lake
 
-A dark, macOS-inspired menu bar with understated workspace and file controls, a compact system-status cluster, and no Apple logo.
+A warm panel with nine rounded workspaces, a centered mark, and blue date/time pill over a dark translucent terminal and misty lake wallpaper.
 
-![MangoBar V3.0 Lumen preview](v3.0/preview.svg)
+![MangoBar V3.0 Mist Lake preview](v3.0/preview.svg)
 [Open full-size V3.0 preview](v3.0/preview.svg)
 
 - [V3.0 setup guide](v3.0/README.md)

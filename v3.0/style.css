@@ -1,139 +1,130 @@
-/* macOS Dark — a minimal dark desktop menu bar, without Apple branding. */
+/* Mist Lake — soft warm panel with a mist-dark palette and blue status pills. */
 
-/* Core palette. Edit @accent to change the single workspace highlight. */
-@define-color bar #1C1C1E;
-@define-color elevated #2C2C2E;
-@define-color hover #3A3A3C;
-@define-color text #F5F5F7;
-@define-color secondary #98989D;
-@define-color muted #636366;
-@define-color accent #0A84FF;
-@define-color danger #FF453A;
-@define-color success #30D158;
-@define-color menu-hover mix(@elevated, @hover, 50%);
+@define-color bar #C9C1B5;
+@define-color capsule #171B2B;
+@define-color text #E8EDF7;
+@define-color secondary #BBC5D8;
+@define-color muted #8792AA;
+@define-color outline #51617D;
+@define-color occupied #587BC3;
+@define-color accent #83AEFF;
+@define-color hover #2B344A;
 
-/* Compact, neutral typography and spacing shared by all modules. */
 * {
-    font-family: "Inter";
-    font-size: 12px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
     font-weight: 500;
     color: @text;
     background-color: none;
-    padding: 0px 4px;
-    margin: 0px 1px;
-    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 999px;
 }
 
-/* Flat full-width glass strip; keep the top edge visually quiet. */
 #bar {
     background-color: @bar;
     margin: 0px;
     border-radius: 0px;
 }
 
-/* Spaces are quiet numbers; only the current space receives a blue marker. */
 #tags {
-    background-color: none;
+    background-color: @capsule;
     color: @muted;
-    padding: 1px 6px;
-    margin: 1px;
-    border-radius: 6px;
+    min-width: 12px;
+    padding: 2px 3px;
+    margin: 3px 1px;
+    border: 1px solid @outline;
+    border-radius: 999px;
 }
 
 #tags.active {
+    background-color: @accent;
+    color: @capsule;
+    min-width: 22px;
+    border-color: @accent;
+    font-weight: 600;
+}
+
+#tags.occupied {
+    background-color: @occupied;
+    color: @text;
+    border-color: @occupied;
+}
+
+#tags.urgent {
     background-color: @accent;
     color: @text;
     font-weight: 600;
 }
 
-#tags.occupied {
-    color: @secondary;
-}
-
-#tags.urgent {
-    background-color: @danger;
-    color: @text;
-    font-weight: 600;
-}
-
 #tags.empty {
-    background-color: none;
     color: @muted;
 }
 
 #tags:hover {
-    background-color: @elevated;
+    background-color: @hover;
     color: @text;
 }
 
-/* The file menu uses the restrained spacing and contrast of desktop menus. */
-#custom-files-menu {
-    background-color: none;
+#custom-center-mark {
+    background-color: @capsule;
     color: @text;
-    padding: 2px 7px;
-    margin: 0px;
-    border-radius: 6px;
+    min-width: 22px;
+    padding: 2px 0px;
+    margin: 4px 0px;
 }
 
-#custom-files-menu:hover {
-    background-color: @elevated;
-    color: @text;
-}
-
-/* Center title has no chip or background. */
-#title {
-    background-color: none;
-    color: @secondary;
-    padding: 0px 6px;
-    margin: 0px;
-}
-
-/* Status items share a quiet text-only treatment. */
-#tray,
 #network,
 #volume,
-#battery,
 #clock {
-    background-color: none;
+    background-color: @capsule;
     color: @secondary;
-    padding: 0px 4px;
-    margin: 0px 1px;
+    padding: 3px 7px;
+    margin: 4px 1px;
+}
+
+#network {
+    padding-left: 5px;
+    padding-right: 7px;
 }
 
 #network.connected,
 #network.wifi {
-    color: @secondary;
+    color: @text;
 }
 
 #network.ethernet {
-    color: @secondary;
+    color: @text;
 }
 
 #network.disconnected {
-    color: @muted;
-}
-
-#clock.date {
     color: @secondary;
 }
 
-#clock.time {
+#clock.datetime {
+    background-color: @accent;
     color: @text;
     font-weight: 600;
 }
 
-/* Tray menus follow the same restrained dark palette. */
-menu {
-    background-color: @elevated;
+#network:hover,
+#volume:hover,
+#clock:hover {
+    background-color: @hover;
     color: @text;
-    border-radius: 8px;
+}
+
+menu {
+    background-color: @capsule;
+    color: @text;
+    border-radius: 10px;
 }
 
 menuitem {
     background-color: none;
-    color: @secondary;
-    padding: 4px 8px;
-    border-radius: 5px;
+    color: @text;
+    padding: 5px 9px;
+    border-radius: 7px;
 }
 
 menuitem:hover {

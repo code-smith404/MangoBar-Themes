@@ -1,56 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="600" viewBox="0 0 1440 600">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#101319"/>
-      <stop offset=".55" stop-color="#20252d"/>
-      <stop offset="1" stop-color="#171a20"/>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#b2b1ad"/>
+      <stop offset=".58" stop-color="#777b79"/>
+      <stop offset="1" stop-color="#3d4648"/>
     </linearGradient>
-    <radialGradient id="light">
-      <stop stop-color="#7c8798" stop-opacity=".18"/>
-      <stop offset="1" stop-color="#7c8798" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="menubar" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#29292b" stop-opacity=".96"/>
-      <stop offset="1" stop-color="#1c1c1e" stop-opacity=".97"/>
+    <linearGradient id="water" x2="0" y2="1">
+      <stop stop-color="#626b68"/>
+      <stop offset=".45" stop-color="#343a3b"/>
+      <stop offset="1" stop-color="#202426"/>
     </linearGradient>
-    <filter id="soft"><feGaussianBlur stdDeviation="50"/></filter>
+    <linearGradient id="leaves" x2="0" y2="1">
+      <stop stop-color="#b88430"/>
+      <stop offset="1" stop-color="#725022"/>
+    </linearGradient>
+    <filter id="soften" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="leaf-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
   </defs>
-  <rect width="1440" height="600" fill="url(#wall)"/>
-  <ellipse cx="330" cy="390" rx="440" ry="250" fill="url(#light)" filter="url(#soft)"/>
-  <ellipse cx="1150" cy="320" rx="410" ry="250" fill="#8b7b6c" opacity=".08" filter="url(#soft)"/>
-  <path d="M0 455C220 350 390 520 640 405s510-130 800-30v225H0Z" fill="#090b0f" opacity=".42"/>
-  <path d="M0 482C260 378 425 545 685 430s480-105 755-15" fill="none" stroke="#9ea7b3" stroke-opacity=".08" stroke-width="2"/>
 
-  <rect x="0" y="0" width="1440" height="30" fill="url(#menubar)"/>
-  <path d="M0 29.5h1440" stroke="#ffffff" stroke-opacity=".08"/>
-  <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500">
-    <text x="20" y="19" fill="#f5f5f7">1</text>
-    <text x="43" y="19" fill="#98989d">2</text>
-    <text x="66" y="19" fill="#98989d">3</text>
-    <text x="89" y="19" fill="#98989d">4</text>
-    <rect x="12" y="4" width="18" height="21" rx="6" fill="#0a84ff"/>
-    <text x="21" y="19" text-anchor="middle" fill="#f5f5f7">1</text>
-    <text x="117" y="19" fill="#f5f5f7">Files</text>
-    <text x="720" y="19" text-anchor="middle" fill="#98989d" font-size="11">Firefox — MangoBar Themes</text>
-    <g fill="none" stroke="#d1d1d6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M1123 10q7-6 14 0v7q-7 5-14 0z"/>
-      <path d="M1136 10l5 2v4l-5 2"/>
-      <path d="M1165 12c4-5 11-5 15 0M1169 15c2-3 6-3 8 0M1172 18h1"/>
-      <rect x="1202" y="8" width="21" height="12" rx="2"/>
-      <path d="M1224 11v6"/>
-      <path d="M1205 11h12v6h-12z" fill="#d1d1d6" stroke="none"/>
+  <rect width="1280" height="720" fill="url(#sky)"/>
+  <circle cx="1222" cy="214" r="44" fill="#d2d0c8" opacity=".16"/>
+
+  <g filter="url(#soften)" opacity=".85">
+    <path d="M0 370 65 270 105 283 137 342 181 327 213 222 251 252 282 346 337 319 389 254 435 277 471 208 518 245 548 330 596 259 636 300 671 385 718 323 759 248 808 278 846 356 895 315 940 270 979 294 1012 376 1060 310 1095 277 1138 309 1176 389 1215 315 1280 346 1280 465 0 464Z" fill="#44494a"/>
+    <path d="M0 402 81 340 135 360 189 326 236 366 294 342 349 380 411 335 467 366 510 324 559 370 618 346 676 383 723 349 776 377 836 342 901 379 966 345 1025 380 1084 348 1140 382 1197 347 1280 374 1280 478 0 478Z" fill="#333a3b"/>
+    <path d="M0 412 120 400 216 394 327 410 416 397 502 413 610 397 721 414 824 399 934 415 1043 399 1160 418 1280 400 1280 470 0 470Z" fill="#666a64"/>
+    <path d="M0 466h1280v254H0Z" fill="url(#water)"/>
+    <path d="M0 505q140-19 278 0t281 1q153-17 300 0t282 1q81-11 139-2" fill="none" stroke="#a1a39a" stroke-opacity=".28" stroke-width="8"/>
+    <path d="M0 550q130-15 245 0t245 1q130-13 258 0t258 1q145-12 274 0" fill="none" stroke="#a1a39a" stroke-opacity=".19" stroke-width="7"/>
+    <path d="M0 628q108-16 219 0t221 0q116-12 231 0t232 0q119-14 239 1t138-1" fill="none" stroke="#8f938c" stroke-opacity=".16" stroke-width="9"/>
+  </g>
+
+  <g fill="#202526" opacity=".88">
+    <path d="M93 467 116 394 139 467h-14l25 24h-65l25-24Z"/>
+    <path d="M157 465 184 374 211 465h-16l29 28h-77l29-28Z"/>
+    <path d="M283 466 312 349 341 466h-18l31 30h-83l31-30Z"/>
+    <path d="M359 466 384 369 409 466h-15l29 28h-73l29-28Z"/>
+    <path d="M442 466 467 340 492 466h-16l29 30h-73l29-30Z"/>
+    <path d="M522 466 549 366 576 466h-16l30 29h-78l30-29Z"/>
+    <path d="M593 466 618 354 643 466h-16l29 30h-73l29-30Z"/>
+  </g>
+  <g fill="none" stroke="#302d26" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".95">
+    <path d="M880 477q26-42 44-86t15-74q-5-42 19-77m-30 128q-36-14-61-41m63 40q35-25 65-32m-73 7q-20-27-48-36m62-47q30-12 55-4m-59 31q-24-9-42-27m-13 157q42 4 82 0"/>
+  </g>
+  <g fill="url(#leaves)" opacity=".84" filter="url(#leaf-blur)">
+    <ellipse cx="903" cy="275" rx="66" ry="38"/>
+    <ellipse cx="968" cy="246" rx="77" ry="42"/>
+    <ellipse cx="1035" cy="277" rx="62" ry="32"/>
+    <ellipse cx="1080" cy="346" rx="59" ry="27"/>
+    <ellipse cx="961" cy="326" rx="67" ry="30"/>
+    <ellipse cx="845" cy="319" rx="50" ry="27"/>
+  </g>
+  <g fill="none" stroke="#433c2d" stroke-width="8" opacity=".4">
+    <path d="M870 520q36 28 75 5t76 1 77-1"/>
+    <path d="M892 536q37 28 78 7t78 0 58 8"/>
+  </g>
+
+  <rect x="0" y="0" width="1280" height="36" fill="#c9c1b5"/>
+  <g font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="12">
+    <rect x="4" y="4" width="207" height="26" rx="14" fill="#171b2b"/>
+    <circle cx="20" cy="17" r="8" fill="#587bc3"/>
+    <text x="20" y="21" text-anchor="middle" fill="#edf2fc">1</text>
+    <rect x="32" y="9" width="32" height="17" rx="9" fill="#83aeff"/>
+    <text x="48" y="21" text-anchor="middle" fill="#171b2b">2</text>
+    <g fill="none" stroke="#627492" stroke-width="1">
+      <circle cx="76" cy="17" r="7.5"/><circle cx="96" cy="17" r="7.5"/>
+      <circle cx="116" cy="17" r="7.5"/><circle cx="136" cy="17" r="7.5"/>
+      <circle cx="156" cy="17" r="7.5"/><circle cx="176" cy="17" r="7.5"/>
+      <circle cx="196" cy="17" r="7.5"/>
     </g>
-    <text x="1231" y="19" fill="#d1d1d6">86%</text>
-    <text x="1277" y="19" fill="#d1d1d6">Tue Oct 20</text>
-    <text x="1387" y="19" text-anchor="end" fill="#f5f5f7" font-weight="600">7:42</text>
+    <g fill="#aeb9ce" text-anchor="middle">
+      <text x="76" y="21">3</text><text x="96" y="21">4</text>
+      <text x="116" y="21">5</text><text x="136" y="21">6</text>
+      <text x="156" y="21">7</text><text x="176" y="21">8</text>
+      <text x="196" y="21">9</text>
+    </g>
+    <rect x="628" y="4" width="24" height="26" rx="13" fill="#171b2b"/>
+    <text x="640" y="21" text-anchor="middle" fill="#dbe3f4">−</text>
+    <rect x="1109" y="4" width="167" height="26" rx="14" fill="#171b2b"/>
+    <text x="1118" y="21" fill="#c0c9dc">Fri 30 Oct 19:25</text>
+    <text x="1236" y="21" fill="#aebbd2">◖</text>
+    <text x="1257" y="21" fill="#aebbd2">◢</text>
   </g>
 
-  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
-    <text x="720" y="265" fill="#f5f5f7" font-size="27" font-weight="500">A quieter desktop.</text>
-    <text x="720" y="296" fill="#98989d" font-size="14">macOS Dark · a compact, understated bar for MangoBar</text>
-    <rect x="663" y="319" width="114" height="1" fill="#636366"/>
-    <text x="720" y="349" fill="#98989d" font-size="12">Workspaces · Files</text>
-    <text x="720" y="371" fill="#98989d" font-size="12">Network · Sound · Battery · Date and time</text>
+  <rect x="5.5" y="36.5" width="1269" height="682" rx="5" fill="#292929" fill-opacity=".84" stroke="#8db8a8" stroke-width="2"/>
+
+  <g font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="17">
+    <rect x="11" y="39" width="99" height="23" rx="11" fill="#087eaa"/>
+    <text x="26" y="56" fill="#f3f5f7">›_fish</text>
+    <path d="M108 39h41v23h-41l10-11.5Z" fill="#ff8d3b"/>
+    <text x="124" y="56" text-anchor="middle" fill="#292929">◆</text>
+    <path d="M149 39h79a11 11 0 0 1 0 23h-79l10-11.5Z" fill="#81739c"/>
+    <text x="184" y="56" text-anchor="middle" fill="#f1edf7" font-size="15">♧2ms</text>
+
+    <text x="12" y="82" fill="#d5efec">❯›</text>
+    <rect x="57" y="64" width="10" height="23" fill="#f3f3f3"/>
+
+    <path d="M1087 39h21l10 11.5-10 11.5h-21a11 11 0 0 1 0-23Z" fill="#bbc4c5"/>
+    <text x="1107" y="56" text-anchor="middle" fill="#272b2c">▲</text>
+    <rect x="1116" y="39" width="152" height="23" rx="12" fill="#32bde9"/>
+    <text x="1192" y="56" text-anchor="middle" fill="#f5fbff" font-size="16">▦ 30,19:25</text>
   </g>
-  <text x="720" y="566" text-anchor="middle" fill="#636366" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="1.4">CONCEPT PREVIEW · NO APPLE LOGO · LINUX DESKTOP ACTIONS</text>
 </svg>
