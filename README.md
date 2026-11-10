@@ -4,6 +4,28 @@ Themes and setup files for [MangoBar](https://github.com/mangowm/mangobar), the 
 
 ## Install
 
+### Quick install (one command)
+
+**Interactive:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/code-smith404/MangoBar-Themes/main/install.sh | bash
+```
+
+**Non-interactive:**
+```bash
+# Using --theme and --yes flags
+curl -fsSL https://raw.githubusercontent.com/code-smith404/MangoBar-Themes/main/install.sh | bash -s -- --theme 4.0 --yes
+
+# Using MANGOBAR_THEME environment variable
+MANGOBAR_THEME=3.0 bash <(curl -fsSL https://raw.githubusercontent.com/code-smith404/MangoBar-Themes/main/install.sh)
+```
+
+> **Note:** The script backs up any existing `~/.config/mangobar` to `~/.config/mangobar.bak.<timestamp>` before installing. Always review `install.sh` before piping any script to `bash`.
+
+**Requirements:** [MangoBar](https://github.com/mangowm/mangobar) and [MangoWM](https://github.com/mangowm/mangowm) installed. V4.0 optionally uses [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter) for notifications.
+
+### Manual install (git clone)
+
 Clone the repository and run the root installer:
 
 ```bash
